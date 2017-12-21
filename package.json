@@ -1,12 +1,9 @@
 {
-  "name": "cn.vuejs.org",
+  "name": "itimorbooks.github.io",
+  "version": "1.0.0",
   "private": true,
   "hexo": {
     "version": "3.4.4"
-  },
-  "scripts": {
-    "start": "hexo server",
-    "deploy": "node pre-deploy.js && hexo clean && hexo generate && hexo deploy"
   },
   "dependencies": {
     "hexo": "^3.4.4",
