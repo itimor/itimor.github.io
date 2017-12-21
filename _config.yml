@@ -3,16 +3,16 @@
 ## Source: https://github.com/tommy351/hexo/
 
 # Site
-title: Vue.js
+title: Itimor's Book
 subtitle:
-description: "The Progressive JavaScript Framework"
-author: Evan You
+description: "Itimor's Book"
+author: Itimor
 email:
 language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://cn.vuejs.org
+url: https://itimorbooks.github.io
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -189,3 +189,8 @@ alias:
   examples/todomvc.html: vuejs/examples/todomvc.html
   examples/tree-view.html: vuejs/examples/tree-view.html
 
+
+deploy:
+  type: git
+  repo: git@github.com:itimor/itimorbooks.github.io.git
+  branch: master
