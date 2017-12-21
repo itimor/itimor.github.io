@@ -138,7 +138,7 @@ offline:
 ## Docs: http://zespia.tw/hexo/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:itimor/itimorbooks.github.io.git
+  repo: git@github.com:itimor/itimor.github.io.git
   branch: master
 
 
