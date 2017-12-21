@@ -324,12 +324,12 @@ eval metrics: {'average_loss': 0.002535033, 'loss': 0.010140132, 'global_step': 
 
 ### 自定义模型
 
- `tf.estimator` 不会将你禁锢在它预设的模型中。假设我们想要创建一个自定义模型。我们仍然可以通过 `tf.estimator` 保持高度抽象的数据集,喂养,训练等。为了说明,我们将展示如何用低级TensorFlow API实现自己的等效线性回归模型。
+`tf.estimator` 不会将你禁锢在它预设的模型中。假设我们想要创建一个自定义模型。我们仍然可以通过 `tf.estimator` 保持高度抽象的数据集,喂养,训练等。为了说明,我们将展示如何用低级TensorFlow API实现自己的等效线性回归模型。
 
- 要使用 `tf.estimator` 定义一个自定义模型。我们需要使用 `tf.estimator.Estimator`。`tf.estimator.LinearRegressor` 实际上是 `tf.estimator.Estimator` 的一个子类。我们只是给 `Estimator` 提供一个函数 `model_fn` 来告诉 `tf.estimator` 怎样定义预测,训练步骤,和损失，而不是生成子类 `Estimator`。代码如下所示:
+要使用 `tf.estimator` 定义一个自定义模型。我们需要使用 `tf.estimator.Estimator`。`tf.estimator.LinearRegressor` 实际上是 `tf.estimator.Estimator` 的一个子类。我们只是给 `Estimator` 提供一个函数 `model_fn` 来告诉 `tf.estimator` 怎样定义预测,训练步骤,和损失，而不是生成子类 `Estimator`。代码如下所示:
 
- ``` python
- import numpy as np
+``` python
+import numpy as np
 import tensorflow as tf
 
 # Declare list of features, we only have one real-valued feature

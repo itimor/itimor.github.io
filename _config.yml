@@ -138,8 +138,9 @@ offline:
 ## Docs: http://zespia.tw/hexo/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:vuejs/cn.vuejs.org.git
-  branch: gh-pages
+  repo: git@github.com:itimor/itimorbooks.github.io.git
+  branch: master
+
 
 feed:
   type: atom
@@ -188,9 +189,3 @@ alias:
   examples/svg.html: vuejs/examples/svg.html
   examples/todomvc.html: vuejs/examples/todomvc.html
   examples/tree-view.html: vuejs/examples/tree-view.html
-
-
-deploy:
-  type: git
-  repo: git@github.com:itimor/itimorbooks.github.io.git
-  branch: master
