@@ -140,7 +140,7 @@ deploy:
   type: git
   repo:
     github: git@github.com:itimor/itimor.github.io.git,master
-    oschina: git@gitee.com:i6bu6/6bu6.oschina.io.git,master
+    oschina: git@gitee.com:i6bu6/6bu6.git,master
     coding: git@coding.com:itimor/itimor.coding.me,master
 
 feed:
