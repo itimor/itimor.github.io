@@ -315,7 +315,7 @@ order: 803
         orgUrl: 'https://www.alibaba.com/'
       },
       reposOfficial: [
-        'itimorbooks.github.io'
+        'itimor.github.io'
       ],
       reposPersonal: [
         'apache/incubator-weex'
@@ -529,7 +529,7 @@ order: 803
         orgUrl: 'http://www.zbj.com/'
       },
       reposOfficial: [
-        'itimorbooks', 'github.io', 'itimorbooks.github.io'
+        'itimor', 'github.io', 'itimor.github.io'
       ],
       reposPersonal: [
         'weexteam/weex-vue-framework', 'into-vue'
