@@ -3,7 +3,6 @@
     <input type="text" id="search-query-<%- context %>" class="search-query st-default-search-input">
   </form>
 </li>
-<%- partial('partials/vuejs_dropdown') %>
 <%- partial('partials/ml_dropdown') %>
 <li>
   <a href="<%- url_for("/about/") %>" class="nav-link team<%- page.path.match(/about/) ? ' current' : '' %>">about</a>
