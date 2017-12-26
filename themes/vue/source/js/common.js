@@ -1,7 +1,6 @@
 (function () {
   initMobileMenu()
   if (PAGE_TYPE) {
-    initVersionSelect()
     initSubHeaders()
     initApiSpecLinks()
     initLocationHashFuzzyMatching()
@@ -130,27 +129,6 @@
       }
     })
   }
-
-  /**
-   * Doc version select
-   */
-
-  function initVersionSelect () {
-    // version select
-    var versionSelect = document.querySelector('.version-select')
-    versionSelect && versionSelect.addEventListener('change', function (e) {
-      var version = e.target.value
-      var section = window.location.pathname.match(/\/v\d\/(\w+?)\//)[1]
-      if (version === 'SELF') return
-      window.location.assign(
-        'https://' +
-        version +
-        (version && '.') +
-        'vuejs.org/' + section + '/'
-      )
-    })
-  }
-
   /**
    * Sub headers in sidebar
    */
