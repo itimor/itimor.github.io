@@ -384,4 +384,4 @@ eval metrics: {'loss': 0.010101897, 'global_step': 1000}
 注意，自定义model()函数的内容和低级API的手动循环训练模型十分相似。
 
 ## 下一步
-现在您有了TensorFlow的基础知识。我们有几个教程,您可以看看了解更多信息。如果您是初学者的话，请看[MNIST for beginners](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners?hl=zh-cn), 否则看[Deep MNIST for experts](https://www.tensorflow.org/versions/r1.1/get_started/mnist/pros?hl=zh-cn).
+现在您有了TensorFlow的基础知识。我们有几个教程,您可以看看了解更多信息。如果您是初学者的话，请看[MNIST机器学习入门](/ml/tensorflow/mnist.html), 否则看[深入探索MNIST](/ml/tensorflow/deep-mnist.html).
