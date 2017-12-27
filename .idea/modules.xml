@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://E:/git/cn.vuejs.org/.idea/cn.vuejs.org.iml" filepath="E:/git/cn.vuejs.org/.idea/cn.vuejs.org.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/itimorbooks.iml" filepath="$PROJECT_DIR$/.idea/itimorbooks.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/itimorbooks.github.io.iml" filepath="$PROJECT_DIR$/.idea/itimorbooks.github.io.iml" />
+      <module fileurl="file://E:\project\itimorbooks\.idea\itimorbooks.github.io.iml" filepath="E:\project\itimorbooks\.idea\itimorbooks.github.io.iml" />
     </modules>
   </component>
 </project>

@@ -2,9 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ebe2d2f-1315-4de2-bad4-221f22a97d0f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="E:/git/cn.vuejs.org/src/_posts/installation.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/vue/source/css/_syntax.styl" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/.github/ISSUE_TEMPLATE.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/.github/PULL_REQUEST_TEMPLATE.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/011-component.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/012-release.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/1.0.0-release.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/announcing-2.0.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/common-gotchas.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/march-update.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/vue-011-release.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/vue-cli.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/vue-next.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/vuejs-010-release.md" afterPath="" />
+      <change type="DELETED" beforePath="E:/git/cn.vuejs.org/src/_posts/why-no-template-url.md" afterPath="" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/src/images/vue-component-with-preprocessors.png" afterPath="E:/git/cn.vuejs.org/src/images/vue-component-with-preprocessors.png" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/_config.yml" afterPath="E:/git/cn.vuejs.org/_config.yml" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/package-lock.json" afterPath="E:/git/cn.vuejs.org/package-lock.json" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/package.json" afterPath="E:/git/cn.vuejs.org/package.json" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/src/about/index.md" afterPath="E:/git/cn.vuejs.org/src/about/index.md" />
+      <change type="MODIFICATION" beforePath="E:/git/cn.vuejs.org/src/menu/index.md" afterPath="E:/git/cn.vuejs.org/src/menu/index.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/itimorbooks.iml" afterPath="$PROJECT_DIR$/.idea/itimorbooks.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/vue/layout/index.ejs" afterPath="$PROJECT_DIR$/themes/vue/layout/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/vue/source/css/index.styl" afterPath="$PROJECT_DIR$/themes/vue/source/css/index.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md" afterPath="$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ml/tensorflow/index.md" afterPath="$PROJECT_DIR$/src/ml/tensorflow/index.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/vue/source/css/_common.styl" afterPath="$PROJECT_DIR$/themes/vue/source/css/_common.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/vue/source/css/_settings.styl" afterPath="$PROJECT_DIR$/themes/vue/source/css/_settings.styl" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +42,111 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/vue/layout/index.ejs">
+      <file leaf-file-name="deep-mnist.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="458">
+                <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ml/tensorflow/index.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="288">
+                <caret line="279" column="23" lean-forward="false" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/vue/source/css/page.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="198" column="11" lean-forward="false" selection-start-line="198" selection-start-column="11" selection-end-line="198" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_common.styl" pinned="false" current-in-tab="false">
+        <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_common.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_common.styl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_common.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_settings.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_settings.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_settings.styl" pinned="false" current-in-tab="false">
+        <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_settings.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.styl" pinned="false" current-in-tab="false">
+        <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/page.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_syntax.styl" pinned="false" current-in-tab="false">
+        <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_syntax.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_syntax.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_syntax.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -48,8 +173,18 @@
       <find>favicon</find>
       <find>algolia</find>
       <find>version</find>
-      <find>hero</find>
       <find>$space</find>
+      <find>hero</find>
+      <find>$codebg</find>
+      <find>.gutter pre</find>
+      <find>code, pre</find>
+      <find>code</find>
+      <find>figure</find>
+      <find>figure</find>
+      <find>highlight python</find>
+      <find>highlight</find>
+      <find>python</find>
+      <find>pre</find>
     </findStrings>
     <dirStrings>
       <dir>E:\project\itimorbooks\themes\vue</dir>
@@ -57,6 +192,7 @@
       <dir>$PROJECT_DIR$/themes/vue/source/css</dir>
       <dir>$PROJECT_DIR$</dir>
       <dir>E:\project\itimorbooks</dir>
+      <dir>E:\git\cn.vuejs.org\themes\vue\source\css</dir>
       <dir>E:\project\itimorbooks\themes\vue\source\css</dir>
     </dirStrings>
   </component>
@@ -73,7 +209,6 @@
         <option value="$PROJECT_DIR$/themes/vue/_config.yml" />
         <option value="$PROJECT_DIR$/themes/vue/source/css/page.styl" />
         <option value="$PROJECT_DIR$/themes/vue/source/js/common.js" />
-        <option value="$PROJECT_DIR$/themes/vue/source/css/_common.styl" />
         <option value="$PROJECT_DIR$/themes/vue/source/css/_header.styl" />
         <option value="$PROJECT_DIR$/db.json" />
         <option value="$PROJECT_DIR$/.deploy_git/vuejs/guide/instance.html" />
@@ -83,10 +218,13 @@
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/themes/vue/layout/layout.ejs" />
         <option value="$PROJECT_DIR$/src/ml/tensorflow/mnist.md" />
-        <option value="$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md" />
-        <option value="$PROJECT_DIR$/src/ml/tensorflow/index.md" />
         <option value="$PROJECT_DIR$/themes/vue/source/css/index.styl" />
         <option value="$PROJECT_DIR$/themes/vue/layout/index.ejs" />
+        <option value="$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md" />
+        <option value="$PROJECT_DIR$/src/ml/tensorflow/index.md" />
+        <option value="$PROJECT_DIR$/themes/vue/source/css/_settings.styl" />
+        <option value="$PROJECT_DIR$/themes/vue/source/css/_syntax.styl" />
+        <option value="$PROJECT_DIR$/themes/vue/source/css/_common.styl" />
       </list>
     </option>
   </component>
@@ -139,6 +277,82 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="cn.vuejs.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn.vuejs.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn.vuejs.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn.vuejs.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="itimorbooks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -179,7 +393,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itimorbooks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -190,15 +430,15 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/git/cn.vuejs.org" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\itimorbooks\themes\vue\source\css" />
       <recent name="E:\project\itimorbooks\src\ml\tensorflow" />
       <recent name="$PROJECT_DIR$/src/ml/tensorflow" />
       <recent name="$PROJECT_DIR$/themes/vue/source/images/icons" />
       <recent name="$PROJECT_DIR$/themes/vue/source/images" />
-      <recent name="E:\project\itimorbooks\themes\vue\source\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -421,30 +661,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/images/tensorflow.jpg" />
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/images/tensorflow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/images/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/images/jinrong.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/images/quant.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.deploy_git/vuejs/guide/instance.html" />
-    <entry file="file://$PROJECT_DIR$/public/vuejs/examples/tree-view.html" />
-    <entry file="file://$PROJECT_DIR$/public/guide/computed.html" />
     <entry file="file://$PROJECT_DIR$/public/guide/components.html" />
     <entry file="file://$PROJECT_DIR$/public/api/index.html" />
     <entry file="file://$PROJECT_DIR$/public/guide/instance.html" />
@@ -562,10 +778,26 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/index.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/layout/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ml/tensorflow/mnist.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="7128">
+          <first_editor relative-caret-position="400">
             <caret line="225" column="144" lean-forward="false" selection-start-line="225" selection-start-column="144" selection-end-line="225" selection-end-column="144" />
             <folding />
           </first_editor>
@@ -578,8 +810,8 @@
     <entry file="file://$PROJECT_DIR$/src/ml/tensorflow/deep-mnist.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="572">
-            <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <first_editor relative-caret-position="458">
+            <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor>
@@ -591,8 +823,8 @@
     <entry file="file://$PROJECT_DIR$/src/ml/tensorflow/index.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="429">
-            <caret line="386" column="142" lean-forward="false" selection-start-line="386" selection-start-column="142" selection-end-line="386" selection-end-column="142" />
+          <first_editor relative-caret-position="288">
+            <caret line="279" column="23" lean-forward="false" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
             <folding />
           </first_editor>
           <second_editor>
@@ -601,18 +833,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/index.styl">
+    <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_settings.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+        <state relative-caret-position="330">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/vue/layout/index.ejs">
+    <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/page.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_common.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/git/cn.vuejs.org/themes/vue/source/css/_syntax.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_settings.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_syntax.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/page.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="198" column="11" lean-forward="false" selection-start-line="198" selection-start-column="11" selection-end-line="198" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/vue/source/css/_common.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
           <folding />
         </state>
       </provider>

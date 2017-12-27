@@ -93,7 +93,7 @@ sess.run(node3): 7.0
 
 TensorFlow 提供了一种称为 `TensorBoard` 的实用程序, 可以显示计算图的图片。下面是一个截图, 展示了 `TensorBoard` 如何直观地显示图:
 
-![](/images/28d118c8.png)
+![](images/28d118c8.png)
 
 事实上，这张图并不特别有趣，因为它总是产生一个固定的结果。一个图可以接受外部输入的参数，称为占位符(`placeholder`)。占位符是稍后提供值的保证。
 
@@ -117,7 +117,7 @@ print(sess.run(adder_node, {a: [1, 3], b: [2, 4]}))
 
 在 TensorBoard 中, 图形如下所示:
 
-![](/images/0d2edff3.png)
+![](images/0d2edff3.png)
 
 我们可以通过添加另一个操作使计算图更加复杂。例如,
 
@@ -132,7 +132,7 @@ print(sess.run(add_and_triple, {a: 3, b: 4.5}))
 
 计算图在 TensorBoard 中如下所示:
 
-![](/images/00ec712b.png)
+![](images/00ec712b.png)
 
 在机器学习中, 我们通常需要一个可以接受任意输入的模型, 比如上面的一个。为了使模型训练, 我们需要能够修改图形, 以获得相同的输入新的输出。变量(`Variables `)允许我们向图中添加训练参数。它们是用类型和初始值构造的:
 
@@ -258,7 +258,7 @@ W: [-0.9999969] b: [0.9999908] loss: 5.6999738e-11
 
 这个更复杂的程序仍然可以在 TensorBoard 中可视化:
 
-![](/images/c1f79ff6.png)
+![](images/c1f79ff6.png)
 
 ## tf.estimator
 
@@ -274,7 +274,7 @@ W: [-0.9999969] b: [0.9999908] loss: 5.6999738e-11
 
 请注意使用 `tf.estimator` 使得线性回归变得多么简单:
 
-``` python
+```python
 # NumPy is often used to load, manipulate and preprocess data.
 import numpy as np
 import tensorflow as tf
