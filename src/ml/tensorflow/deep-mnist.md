@@ -1,5 +1,5 @@
 ---
-title: 深度学习mnist
+title: 深度学习MNIST
 type: ml
 order: 3
 ---
