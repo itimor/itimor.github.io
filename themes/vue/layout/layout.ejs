@@ -72,27 +72,20 @@
     <!-- main custom script for sidebars, version selects etc. -->
     <script src="<%- url_for("/js/css.escape.js") %>"></script>
     <script src="<%- url_for("/js/common.js") %>"></script>
+    <script src="<%- url_for("/js/local_search.js") %>"></script>
 
     <!-- search -->
     <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
     <%- css('css/search') %>
-    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    [
-      '#search-query-nav',
-      '#search-query-sidebar',
-      '#search-query-menu'
-    ].forEach(function (selector) {
-      if (!document.querySelector(selector)) return
-      // search index defaults to itimorbooks
-      var match = window.location.pathname.match(/^\/(v\d+)/)
-      docsearch({
-      appId: 'QJDCPSRBFN',
-      apiKey: '742438d2269f190527a8874f14d2111d',
-      indexName: 'itimorbooks',
-      inputSelector: selector,
-      })
-    })
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
     </script>
 
     <!-- fastclick -->

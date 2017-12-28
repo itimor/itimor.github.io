@@ -147,9 +147,6 @@ feed:
   path: atom.xml
   limit: 20
 
-algolia:
-  applicationID: 'QJDCPSRBFN'
-  apiKey: '742438d2269f190527a8874f14d2111d'
-  adminApiKey: 'd57768017285f27546cd1f93a5f4bfd2'
-  indexName: 'itimorbooks'
-  chunkSize: 5000
+search:
+  path: search.xml
+  field: all
