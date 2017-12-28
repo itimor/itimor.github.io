@@ -7,11 +7,10 @@ title: Itimor's Book
 subtitle:
 description: "Itimor's Book"
 author: Itimor
-email:
+email: itimor@126.com
 language: zh-CN
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://itimor.github.io
 root: /
 permalink: :year/:month/:day/:title/
