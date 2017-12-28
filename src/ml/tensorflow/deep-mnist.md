@@ -1,6 +1,6 @@
 ---
 title: 深入探索MNIST
-type: ml
+type: tensorflow
 order: 3
 ---
 

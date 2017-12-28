@@ -1,6 +1,6 @@
 ---
 title: MNIST机器学习入门
-type: ml
+type: tensorflow
 order: 2
 ---
 
