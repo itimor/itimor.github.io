@@ -2,7 +2,7 @@
   initMobileMenu()
   if (PAGE_TYPE) {
     initSubHeaders()
-    initApiSpecLinks()
+    // initApiSpecLinks()
     initLocationHashFuzzyMatching()
   }
 

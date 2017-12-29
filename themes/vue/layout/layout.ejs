@@ -83,6 +83,7 @@
     inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
     inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
     $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
     </script>
 
