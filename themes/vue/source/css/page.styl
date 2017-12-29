@@ -171,15 +171,22 @@
   .sidebar
     position: fixed
 
-@media screen and (min-width: $max-width)
+@media screen and (min-width: 1590px)
   #header
     background-color: rgba(255,255,255,.4)
 
-@media screen and (max-width: $max-width)
+@media screen and (max-width: 1300px)
   .content.with-sidebar
-    margin-left: 300px
+    margin-left: 290px
+  #ad
+    z-index: 1
+    position: relative
+    bottom: 0
+    right: 0
+    float: right
+    padding: 0 0 20px 30px
 
-@media screen and (max-width: $max-width)
+@media screen and (max-width: 900px)
   body
     -webkit-text-size-adjust: none
     font-size: 14px
