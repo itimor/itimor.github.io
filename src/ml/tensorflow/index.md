@@ -39,7 +39,7 @@ TensorFlow 中数据的中心单位是 tensor。tensor 由一组形成于任意�
 
 ### 导入 TensorFlow 模块
 
-```
+``` python
 import tensorflow as tf
 ```
 
