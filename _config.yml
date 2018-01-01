@@ -139,7 +139,7 @@ deploy:
   type: git
   repo:
     github: git@github.com:itimor/itimor.github.io.git,master
-    coding: git@git.coding.net:itimor/itimor.coding.me.git,co-page
+    coding: git@git.coding.net:itimor/itimor.coding.me.git,coding-pages
 
 feed:
   type: atom
