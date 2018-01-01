@@ -138,8 +138,8 @@ offline:
 deploy:
   type: git
   repo:
-    github: git@github.com:itimor/itimor.github.io.git,master
-    coding: git@coding.com:itimor/itimor.coding.me,master
+    github: git@github.com:itimor/itimor.github.io.git,gh-page
+    coding: git@coding.com:itimor/itimor.coding.me,co-page
 
 feed:
   type: atom
