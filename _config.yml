@@ -138,7 +138,7 @@ offline:
 deploy:
   type: git
   repo:
-    github: git@github.com:itimor/itimor.github.io.git,gh-page
+    github: git@github.com:itimor/itimor.github.io.git,gh-pages
     coding: git@coding.com:itimor/itimor.coding.me,co-page
 
 feed:
