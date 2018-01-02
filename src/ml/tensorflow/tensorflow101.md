@@ -45,7 +45,7 @@ data_sets = input_data.read_data_sets(FLAGS.train_dir, FLAGS.fake_data)
 `data_sets.validation` | 5000个图像和标签，用于迭代验证训练准确度。
 `data_sets.test` | 10000个图像和标签，用于最终测试训练准确度（trained accuracy）。
 
-### 输入与占位符（Inputs and Placeholders）
+### 输入与占位符
 
 `placeholder_inputs()`函数将生成两个`tf.placeholder`操作，定义传入图表中的shape参数，shape参数中包括`batch_size`值，后续还会将实际的训练用例传入图表。
 

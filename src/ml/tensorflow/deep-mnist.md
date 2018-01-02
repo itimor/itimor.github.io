@@ -35,7 +35,7 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 这里，`mnist` 是一个轻量级的类。它以Numpy数组的形式存储着训练、校验和测试数据集。同时提供了一个函数，用于在迭代中获得 `minibatch` ，后面我们将会用到。
 
-### 运行TensorFlow的InteractiveSession
+### 运行InteractiveSession
 
 Tensorflow依赖于一个高效的C++后端来进行计算。与后端的这个连接叫做session。一般而言，使用TensorFlow程序的流程是先创建一个图，然后在session中启动它。
 
