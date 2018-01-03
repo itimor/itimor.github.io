@@ -153,7 +153,7 @@ train_op = optimizer.minimize(loss, global_step=global_step)
 ```
 
 ## 训练模型
-一旦图表构建完毕，就通过`fully_connected_feed.p`文件中的用户代码进行循环地迭代式训练和评估。
+一旦图表构建完毕，就通过`fully_connected_feed.py`文件中的用户代码进行循环地迭代式训练和评估。
 
 ### 图表
 
