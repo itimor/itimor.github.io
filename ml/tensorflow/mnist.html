@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>MNIST机器学习入门 — Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MNIST机器学习入门 — Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "tensorflow"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link current">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link current">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        Tensorflow教程
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+    
+    <li>
+      <a href="/ml/tensorflow/index.html" class="sidebar-link">Tensorflow入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/tensorflow/mnist.html" class="sidebar-link current">MNIST机器学习入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/tensorflow/deep-mnist.html" class="sidebar-link">深入探索MNIST</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/tensorflow/tensorflow101.html" class="sidebar-link">TensorFlow运作方式入门</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content tensorflow with-sidebar ">
+  
+    
+  
+  
+    <h1>MNIST机器学习入门</h1>
+  
+  <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇面向刚学习机器学习和TensorFlow的读者。如果您已经知道<code>MNIST</code>是什么，以及softmax（多项逻辑）回归是什么，那么您可能更喜欢这个<a href="/ml/tensorflow/deep-mnist.html">速度更快的教程</a>。确保 在开始任何教程之前<a href="https://www.tensorflow.org/versions/master/install/" target="_blank" rel="noopener">安装TensorFlow</a>。</p>
+<p>当学习如何编程时，首先要做的就是打印“Hello World”。就像编程有Hello World，机器学习有MNIST。</p>
+<p>MNIST是一个简单的计算机视觉数据集。它由这样的手写数字的图像组成：</p>
+<p><img src="images/c0f27b05.png" alt=""></p>
+<p>它也包含每一张图片对应的标签，告诉我们这个是数字几。比如，上面这四张图片的标签分别是5，0，4，1。</p>
+<p>在此教程中，我们将训练一个机器学习模型用于预测图片里面的数字。我们的目的不是要设计一个世界一流的复杂模型 – 尽管我们会在之后给你源代码去实现一流的预测模型 – 而是要介绍下如何使用TensorFlow。所以，我们这里会从一个很简单的数学模型开始，它叫做<code>Softmax Regression</code>。</p>
+<p>对应这个教程的实现代码很短，而且真正有意思的内容只包含在三行代码里面。但是，去理解包含在这些代码里面的设计思想是非常重要的：TensorFlow工作流程和机器学习的基本概念。因此，这个教程会很详细地介绍这些代码的实现原理。</p>
+<h2 id="MNIST数据集"><a href="#MNIST数据集" class="headerlink" title="MNIST数据集"></a>MNIST数据集</h2><p>MNIST数据集的官网是<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">Yann LeCun’s website</a>。在这里，我们提供了一份python源代码用于自动下载和安装这个数据集。你可以下载<a href="https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/tutorials/mnist/input_data.py" target="_blank" rel="noopener">这份代码</a>，然后用下面的代码导入到你的项目里面，也可以直接复制粘贴到你的代码文件里面。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"MNIST_data/"</span>, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>下载下来的数据集被分成两部分：60000行的训练数据集（mnist.train）和10000行的测试数据集（mnist.test）。这样的切分很重要，在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）。</p>
+<p>正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是 mnist.train.images ，训练数据集的标签是 mnist.train.labels。</p>
+<p>每一张图片包含28X28个像素点。我们可以用一个数字数组来表示这张图片：</p>
+<p><img src="images/59921b9f.png" alt=""></p>
+<p>我们把这个数组展开成一个向量，长度是 28x28 = 784。如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开。从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较复杂的结构 (提醒: 此类数据的可视化是计算密集型的)。</p>
+<p>展平图片的数字数组会丢失图片的二维结构信息。这显然是不理想的，最优秀的计算机视觉方法会挖掘并利用这些结构信息，我们会在后续教程中介绍。但是在这个教程中我们忽略这些结构，所介绍的简单数学模型，softmax回归(softmax regression)，不会利用这些结构信息。</p>
+<p>因此，在MNIST训练数据集中，mnist.train.images 是一个形状为 [60000, 784] 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。</p>
+<p><img src="images/102.png" alt=""></p>
+<p>相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是”one-hot vectors”。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成([1,0,0,0,0,0,0,0,0,0,0])。因此， mnist.train.labels 是一个 [60000, 10] 的数字矩阵。</p>
+<p><img src="images/103.png" alt=""></p>
+<p>现在，我们准备好可以开始构建我们的模型啦！</p>
+<h2 id="Softmax回归介绍"><a href="#Softmax回归介绍" class="headerlink" title="Softmax回归介绍"></a>Softmax回归介绍</h2><p>我们知道MNIST的每一张图片都表示一个数字，从0到9。我们希望得到给定图片代表每个数字的概率。比如说，我们的模型可能推测一张包含9的图片代表数字9的概率是80%但是判断它是8的概率是5%（因为8和9都有上半部分的小圆），然后给予它代表其他数字的概率更小的值。</p>
+<p>这是一个使用softmax回归（softmax regression）模型的经典案例。softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，最后一步也需要用softmax来分配概率。</p>
+<p>softmax回归（softmax regression）分两步：第一步</p>
+<p>为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。</p>
+<p>下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值。红色代表负数权值，蓝色代表正数权值。</p>
+<p><img src="images/104.png" alt=""></p>
+<p>我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量。因此对于给定的输入图片 x 它代表的是数字 i 的证据可以表示为</p>
+<p><img src="images/12469775.png" alt=""></p>
+<p>其中 <strong>W</strong><sub><em>i</em></sub> 代表权重，<strong>b</strong><sub><em>i</em></sub> 代表数字 <em>i</em> 类的偏置量，<em>j</em> 代表给定图片 <em>x</em> 的像素索引用于像素求和。然后用softmax函数可以把这些证据转换成概率<em>y</em>：</p>
+<p><img src="images/fb2d299b.png" alt=""></p>
+<p>这里的softmax可以看成是一个激励（activation）函数或者链接（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布。因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值。softmax函数可以定义为：</p>
+<p><img src="images/93226efb.png" alt=""></p>
+<p>展开等式右边的子式，可以得到：</p>
+<p><img src="images/8493a953.png" alt=""></p>
+<p>但是更多的时候把softmax模型函数定义为前一种形式：把输入值当成幂指数求值，再正则化这些结果值。这个幂运算表示，更大的证据对应更大的假设模型（hypothesis）里面的乘数权重值。反之，拥有更少的证据意味着在假设模型里面拥有更小的乘数系数。假设模型里的权值不可以是0值或者负值。Softmax然后会正则化这些权重值，使它们的总和等于1，以此构造一个有效的概率分布。（更多的关于Softmax函数的信息，可以参考Michael Nieslen的书里面的这个部分，其中有关于softmax的可交互式的可视化解释。）</p>
+<p>对于softmax回归模型可以用下面的图解释，对于输入的xs加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：</p>
+<p><img src="images/105.png" alt=""></p>
+<p>如果把它写成一个等式，我们可以得到：</p>
+<p><img src="images/106.png" alt=""></p>
+<p>我们也可以用向量表示这个计算过程：用矩阵乘法和向量相加。这有助于提高计算效率。（也是一种更有效的思考方式）</p>
+<p><img src="images/107.png" alt=""></p>
+<p>更进一步，可以写成更加紧凑的方式：</p>
+<p><img src="images/8dc654d7.png" alt=""></p>
+<h2 id="实现回归模型"><a href="#实现回归模型" class="headerlink" title="实现回归模型"></a>实现回归模型</h2><p>为了用python实现高效的数值计算，我们通常会使用函数库，比如NumPy，会把类似矩阵乘法这样的复杂运算使用其他外部语言实现。不幸的是，从外部计算切换回Python的每一个操作，仍然是一个很大的开销。如果你用GPU来进行外部计算，这样的开销会更大。用分布式的计算方式，也会花费更多的资源用来传输数据。</p>
+<p>TensorFlow也把复杂的计算放在python之外完成，但是为了避免前面说的那些开销，它做了进一步完善。Tensorflow不单独地运行单一的复杂计算，而是让我们可以先用图描述一系列可交互的计算操作，然后全部一起在Python之外运行。（这样类似的运行方式，可以在不少的机器学习库中看到。）</p>
+<p>使用TensorFlow之前，首先导入它：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<p>我们通过操作符号变量来描述这些可交互的操作单元，可以用下面的方式创建一个：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">784</span>])</span><br></pre></td></tr></table></figure>
+<p> <code>x</code> 不是一个特定的值，而是一个占位符 <code>placeholder</code>，我们在TensorFlow运行计算时输入这个值。我们希望能够输入任意数量的MNIST图像，每一张图展平成784维的向量。我们用2维的浮点数张量来表示这些图，这个张量的形状是[None，784 ]。（这里的 <code>None</code> 表示此张量的第一个维度可以是任何长度的。）</p>
+<p>我们的模型也需要权重值和偏置量，当然我们可以把它们当做是另外的输入（使用占位符），但TensorFlow有一个更好的方法来表示它们：<code>Variable</code> 。 一个Variable代表一个可修改的张量，存在在TensorFlow的用于描述交互性操作的图中。它们可以用于计算输入值，也可以在计算中被修改。对于各种机器学习应用，一般都会有模型参数，可以用 <code>Variable</code> 表示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>, <span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br></pre></td></tr></table></figure>
+<p>我们赋予 <code>tf.Variable</code> 不同的初值来创建不同的 <code>Variable</code>：在这里，我们都用全为零的张量来初始化 <code>W</code> 和 <code>b</code>。因为我们要学习W和b的值，它们的初值可以随意设置。</p>
+<p>注意，<code>W</code> 的维度是[784，10]，因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，每一位对应不同数字类。<code>b</code> 的形状是[10]，所以我们可以直接把它加到输出上面。</p>
+<p>现在，我们可以实现我们的模型啦。只需要一行代码！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">y = tf.nn.softmax(tf.matmul(x,W) + b)</span><br></pre></td></tr></table></figure>
+<p>首先，我们用 <code>tf.matmul(​​X，W)</code> 表示x乘以W，对应之前等式里面的 <strong>W</strong><sub><em>i</em></sub>，这里x是一个2维张量拥有多个输入。然后再加上b，把和输入到 <code>tf.nn.softmax</code> 函数里面。</p>
+<p>至此，我们先用了几行简短的代码来设置变量，然后只用了一行代码来定义我们的模型。TensorFlow不仅仅可以使softmax回归模型计算变得特别简单，它也用这种非常灵活的方式来描述其他各种数值计算，从机器学习模型对物理学模拟仿真模型。一旦被定义好之后，我们的模型就可以在不同的设备上运行：计算机的CPU，GPU，甚至是手机！</p>
+<h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><p>为了训练我们的模型，我们首先需要定义一个指标来评估这个模型是好的。其实，在机器学习，我们通常定义指标来表示一个模型是坏的，这个指标称为成本（cost）或损失（loss），然后尽量最小化这个指标。但是，这两种方式是相同的。</p>
+<p>一个非常常见的，非常漂亮的成本函数是“交叉熵”（cross-entropy）。交叉熵产生于信息论里面的信息压缩编码技术，但是它后来演变成为从博弈论到机器学习等其他领域里的重要技术手段。它的定义如下：</p>
+<p><img src="images/b88334e9.png" alt=""></p>
+<p><code>y</code> 是我们预测的概率分布, <code>y&#39;</code> 是实际的分布（我们输入的one-hot vector)。比较粗糙的理解是，交叉熵是用来衡量我们的预测用于描述真相的低效性。更详细的关于交叉熵的解释超出本教程的范畴，但是你很有必要好好理解它。</p>
+<p>为了计算交叉熵，我们首先需要添加一个新的占位符用于输入正确值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>,<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+<p>然后我们可以用 <img src="images/0b54e30c.png" alt="">计算交叉熵::</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br></pre></td></tr></table></figure>
+<p>首先，用 <code>tf.log</code> 计算 y 的每个元素的对数。接下来，我们把 y_ 的每一个元素和 <code>tf.log(y)</code> 的对应元素相乘。最后，用 <code>tf.reduce_sum</code> 计算张量的所有元素的总和。（注意，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和。对于100个数据点的预测表现比单一数据点的表现能更好地描述我们的模型的性能。</p>
+<p>现在我们知道我们需要我们的模型做什么啦，用TensorFlow来训练它是非常容易的。因为TensorFlow拥有一张描述你各个计算单元的图，它可以自动地使用<a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener">反向传播算法(backpropagation algorithm)</a>来有效地确定你的变量是如何影响你想要最小化的那个成本值的。然后，TensorFlow会用你选择的优化算法来不断地修改变量以降低成本。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<p>在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵。梯度下降算法（gradient descent algorithm）是一个简单的学习过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动。当然TensorFlow也提供了<a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/api_docs/python/train.html" target="_blank" rel="noopener">其他许多优化算法</a>：只要简单地调整一行代码就可以使用其他的算法。</p>
+<p>TensorFlow在这里实际上所做的是，它会在后台给描述你的计算的那张图里面增加一系列新的计算操作单元用于实现反向传播算法和梯度下降算法。然后，它返回给你的只是一个单一的操作，当运行这个操作时，它用梯度下降算法训练你的模型，微调你的变量，不断减少成本。</p>
+<p>现在，我们可以在一个 <code>InteractiveSession</code> 里面启动模型：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf.InteractiveSession()</span><br></pre></td></tr></table></figure>
+<p>我们首先需要创建一个操作来初始化我们创建的变量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.global_variables_initializer().run()</span><br></pre></td></tr></table></figure>
+<p>开始训练——我们将训练1000次。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">  batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">  sess.run(train_step, feed_dict=&#123;x: batch_xs, y_: batch_ys&#125;)</span><br></pre></td></tr></table></figure>
+<p>该循环的每个步骤中，我们都会随机抓取训练数据中的100个批处理数据点，然后我们用这些数据点作为参数替换之前的占位符来运行train_step。</p>
+<p>使用一小部分的随机数据来进行训练被称为随机训练（stochastic training）- 在这里更确切的说是随机梯度下降训练。在理想情况下，我们希望用我们所有的数据来进行每一步的训练，因为这能给我们更好的训练结果，但显然这需要很大的计算开销。所以，每一次训练我们可以使用不同的数据子集，这样做既可以减少计算开销，又可以最大化地学习到数据集的总体特性。</p>
+<h2 id="评估我们的模型"><a href="#评估我们的模型" class="headerlink" title="评估我们的模型"></a>评估我们的模型</h2><p>那么我们的模型性能如何呢？</p>
+<p>首先让我们找出那些预测正确的标签。<code>tf.argmax</code> 是一个非常有用的函数，它能给出某个tensor对象在某一维上的其数据最大值所在的索引值。由于标签向量是由0,1组成，因此最大值1所在的索引位置就是类别标签，比如 <code>tf.argmax(y,1)</code> 返回的是模型对于任一输入x预测到的标签值，而 <code>tf.argmax(y_,1)</code> 代表正确的标签，我们可以用 <code>tf.equal</code> 来检测我们的预测是否真实标签匹配(索引位置一样表示匹配)。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">correct_prediction = tf.equal(tf.argmax(y,<span class="number">1</span>), tf.argmax(y_,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>这行代码会给我们一组布尔值。为了确定正确预测项的比例，我们可以把布尔值转换成浮点数，然后取平均值。例如，<code>[True, False, True, True]</code> 会变成 <code>[1,0,1,1]</code> ，取平均值后得到 0.75.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br></pre></td></tr></table></figure>
+<p>最后，我们计算所学习到的模型在测试数据集上面的正确率。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(sess.run(accuracy, feed_dict=&#123;x: mnist.test.images, y_: mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
+<p>这个最终结果值应该大约是92%。</p>
+<p>这个结果好吗？嗯，并不太好。事实上，这个结果是很差的。这是因为我们仅仅使用了一个非常简单的模型。不过，做一些小小的改进，我们就可以得到97％的正确率。最好的模型甚至可以获得超过99.7％的准确率！（想了解更多信息，可以看看这个关于各种模型的<a href="http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html" target="_blank" rel="noopener">性能对比列表</a>。)</p>
+<p>比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看<a href="/ml/tensorflow/deep-mnist.html">下一个教程</a>，在那里你可以学习如何用TensorFlow构建更加复杂的模型以获得更好的性能！</p>
+<p>原文地址：<a href="https://www.tensorflow.org/versions/master/get_started/mnist/beginners" target="_blank" rel="noopener">MNIST For ML Beginners</a> 翻译：<a href="https://github.com/linbojin" target="_blank" rel="noopener">linbojin</a></p>
+
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "menu"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        教程
+      </h2>
+      <ul class="menu-root">
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content menu with-sidebar ">
+  
+    
+      <form id="search-form">
+        <input type="text" id="search-query-menu" class="search-query st-default-search-input">
+      </form>
+      <ul class="menu-root">
+  
+  
+</ul>
+
+    
+  
+  
+  
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

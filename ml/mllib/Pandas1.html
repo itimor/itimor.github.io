@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Pandas入门 — Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pandas入门 — Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "mllib"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/index.html" class="sidebar-link">Numpy入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas1.html" class="sidebar-link current">Pandas入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas2.html" class="sidebar-link">Pandas进阶</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Seaborn.html" class="sidebar-link">用Seaborn实现可视化</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content mllib with-sidebar ">
+  
+    
+  
+  
+    <h1>Pandas入门</h1>
+  
+  <h2 id="Pandas介绍"><a href="#Pandas介绍" class="headerlink" title="Pandas介绍"></a>Pandas介绍</h2><p>pandas是Python在数据处理方面功能最为强大的扩展模块。在处理实际的金融数据时，一个条数据通常包含了多种类型的数据，例如，股票的代码是字符串，收盘价是浮点型，而成交量是整型等。在C++中可以实现为一个给定结构体作为单元的容器，如向量（vector，C++中的特定数据结构）。在Python中，pandas包含了高级的数据结构Series和DataFrame，使得在Python中处理数据变得非常方便、快速和简单。</p>
+<h3 id="Numpy-和-Pandas-有什么不同"><a href="#Numpy-和-Pandas-有什么不同" class="headerlink" title="Numpy 和 Pandas 有什么不同"></a>Numpy 和 Pandas 有什么不同</h3><p>如果用 python 的列表和字典来作比较, 那么可以说 Numpy 是列表形式的，没有数值标签，而 Pandas 就是字典形式。Pandas是基于Numpy构建的，让Numpy为中心的应用变得更加简单。</p>
+<p>pandas主要的两个数据结构是Series和DataFrame，随后两节将介绍如何由其他类型的数据结构得到这两种数据结构，或者自行创建这两种数据结构，我们先导入它们以及相关模块：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
+<h2 id="Pandas数据结构：Series"><a href="#Pandas数据结构：Series" class="headerlink" title="Pandas数据结构：Series"></a>Pandas数据结构：Series</h2><p>从一般意义上来讲，Series可以简单地被认为是一维的数组。Series和一维数组最主要的区别在于Series类型具有索引（index）。</p>
+<h3 id="创建Series"><a href="#创建Series" class="headerlink" title="创建Series"></a>创建Series</h3><p>创建一个Series的基本格式是s = Series(data, index=index, name=name)，以下给出几个创建Series的例子。首先我们从数组创建Series：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">18</span>]: a = np.random.randn(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">19</span>]: a</span><br><span class="line">Out[<span class="number">19</span>]: array([<span class="number">-0.13907742</span>, <span class="number">-1.13472176</span>, <span class="number">-0.30952444</span>,  <span class="number">0.5945551</span> , <span class="number">-1.11253943</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">20</span>]: s = Series(a)</span><br><span class="line"></span><br><span class="line">In [<span class="number">21</span>]: s</span><br><span class="line">Out[<span class="number">21</span>]:</span><br><span class="line"><span class="number">0</span>   <span class="number">-0.139077</span></span><br><span class="line"><span class="number">1</span>   <span class="number">-1.134722</span></span><br><span class="line"><span class="number">2</span>   <span class="number">-0.309524</span></span><br><span class="line"><span class="number">3</span>    <span class="number">0.594555</span></span><br><span class="line"><span class="number">4</span>   <span class="number">-1.112539</span>s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,np.nan,<span class="number">44</span>,<span class="number">1</span>])</span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<p>由于我们没有为数据指定索引。于是会自动创建一个0到N-1（N为长度）的整数型索引。</p>
+<p>可以在创建Series时添加index，并可使用Series.index查看具体的index。需要注意的一点是，当从数组创建Series时，若指定index，那么index长度要和data的长度一致：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">26</span>]: s = Series(np.random.randn(<span class="number">5</span>), index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: s</span><br><span class="line">Out[<span class="number">27</span>]:</span><br><span class="line">a    <span class="number">0.391180</span></span><br><span class="line">b   <span class="number">-0.909680</span></span><br><span class="line">c   <span class="number">-0.751830</span></span><br><span class="line">d   <span class="number">-0.628885</span></span><br><span class="line">e   <span class="number">-2.225025</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">28</span>]: s.index</span><br><span class="line">Out[<span class="number">28</span>]: Index([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>], dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
+<p>创建Series的另一个可选项是name，可指定Series的名称，可用Series.name访问。在随后的DataFrame中，每一列的列名在该列被单独取出来时就成了Series的名称：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">29</span>]: s = Series(np.random.randn(<span class="number">5</span>), index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>], name=<span class="string">'my_series'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: s</span><br><span class="line">Out[<span class="number">30</span>]:</span><br><span class="line">a   <span class="number">-0.061299</span></span><br><span class="line">b    <span class="number">1.448393</span></span><br><span class="line">c   <span class="number">-2.871637</span></span><br><span class="line">d   <span class="number">-0.254603</span></span><br><span class="line">e   <span class="number">-0.970275</span></span><br><span class="line">Name: my_series, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: s.name</span><br><span class="line">Out[<span class="number">31</span>]: <span class="string">'my_series'</span></span><br></pre></td></tr></table></figure>
+<p>Series还可以从字典（dict）创建：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">35</span>]: d = &#123;<span class="string">'a'</span>: <span class="number">0.</span>, <span class="string">'b'</span>: <span class="number">1</span>, <span class="string">'c'</span>: <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">In [<span class="number">36</span>]: s = Series(d)</span><br><span class="line"></span><br><span class="line">In [<span class="number">37</span>]: s</span><br><span class="line">Out[<span class="number">37</span>]:</span><br><span class="line">a    <span class="number">0.0</span></span><br><span class="line">b    <span class="number">1.0</span></span><br><span class="line">c    <span class="number">2.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<p>让我们来看看使用字典创建Series时指定index的情形（index长度不必和字典相同）：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">38</span>]: Series(d, index=[<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'a'</span>])</span><br><span class="line">Out[<span class="number">38</span>]:</span><br><span class="line">b    <span class="number">1.0</span></span><br><span class="line">c    <span class="number">2.0</span></span><br><span class="line">d    NaN</span><br><span class="line">a    <span class="number">0.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<p>我们可以观察到两点：一是字典创建的Series，数据将按index的顺序重新排列；二是index长度可以和字典长度不一致，如果多了的话，pandas将自动为多余的index分配NaN（not a number，pandas中数据缺失的标准记号)，当然index少的话就截取部分的字典内容。</p>
+<p>如果数据就是一个单一的变量，如数字4，那么Series将重复这个变量：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">39</span>]: Series(<span class="number">4.</span>, index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>])</span><br><span class="line">Out[<span class="number">39</span>]:</span><br><span class="line">a    <span class="number">4.0</span></span><br><span class="line">b    <span class="number">4.0</span></span><br><span class="line">c    <span class="number">4.0</span></span><br><span class="line">d    <span class="number">4.0</span></span><br><span class="line">e    <span class="number">4.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<h3 id="Series数据的访问"><a href="#Series数据的访问" class="headerlink" title="Series数据的访问"></a>Series数据的访问</h3><p>访问Series数据可以和数组一样使用下标，也可以像字典一样使用索引，还可以使用一些条件过滤：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">40</span>]: s = Series(np.random.randn(<span class="number">10</span>),index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>])</span><br><span class="line">    ...: s[<span class="number">0</span>]</span><br><span class="line">    ...:</span><br><span class="line">Out[<span class="number">40</span>]: <span class="number">1.6327010042454009</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">41</span>]: s[:<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">41</span>]:</span><br><span class="line">a    <span class="number">1.632701</span></span><br><span class="line">b   <span class="number">-0.808834</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">42</span>]: s[[<span class="number">2</span>,<span class="number">0</span>,<span class="number">4</span>]]</span><br><span class="line">Out[<span class="number">42</span>]:</span><br><span class="line">c   <span class="number">-1.708988</span></span><br><span class="line">a    <span class="number">1.632701</span></span><br><span class="line">e   <span class="number">-0.989622</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">43</span>]: s[[<span class="string">'e'</span>, <span class="string">'i'</span>]]</span><br><span class="line">Out[<span class="number">43</span>]:</span><br><span class="line">e   <span class="number">-0.989622</span></span><br><span class="line">i   <span class="number">-0.901893</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">44</span>]: s[s &gt; <span class="number">0.5</span>]</span><br><span class="line">Out[<span class="number">44</span>]:</span><br><span class="line">a    <span class="number">1.632701</span></span><br><span class="line">d    <span class="number">2.814273</span></span><br><span class="line">g    <span class="number">1.337555</span></span><br><span class="line">j    <span class="number">1.314560</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">45</span>]: <span class="string">'e'</span> <span class="keyword">in</span> s</span><br><span class="line">Out[<span class="number">45</span>]: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="Pandas数据结构：DataFrame"><a href="#Pandas数据结构：DataFrame" class="headerlink" title="Pandas数据结构：DataFrame"></a>Pandas数据结构：DataFrame</h2><p>在使用DataFrame之前，我们说明一下DataFrame的特性。DataFrame是将数个Series按列合并而成的二维数据结构，每一列单独取出来是一个Series，这和SQL数据库中取出的数据是很类似的。所以，按列对一个DataFrame进行处理更为方便，用户在编程时注意培养按列构建数据的思维。DataFrame的优势在于可以方便地处理不同类型的列，因此，就不要考虑如何对一个全是浮点数的DataFrame求逆之类的问题了，处理这种问题还是把数据存成NumPy的matrix类型比较便利一些。</p>
+<h3 id="创建DataFrame"><a href="#创建DataFrame" class="headerlink" title="创建DataFrame"></a>创建DataFrame</h3><p>首先来看如何从字典创建DataFrame。DataFrame是一个二维的数据结构，是多个Series的集合体。我们先创建一个值是Series的字典，并转换为DataFrame：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">46</span>]: d = &#123;<span class="string">'one'</span>: Series([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>], index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]), <span class="string">'two'</span>: Series([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">4.</span>], index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>])&#125;</span><br><span class="line">    ...: df = DataFrame(d)</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">47</span>]: df</span><br><span class="line">Out[<span class="number">47</span>]:</span><br><span class="line">   one  two</span><br><span class="line">a  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line">b  <span class="number">2.0</span>  <span class="number">2.0</span></span><br><span class="line">c  <span class="number">3.0</span>  <span class="number">3.0</span></span><br><span class="line">d  NaN  <span class="number">4.0</span></span><br></pre></td></tr></table></figure>
+<p>可以指定所需的行和列，若字典中不含有对应的元素，则置为NaN：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">48</span>]: df = DataFrame(d, index=[<span class="string">'r'</span>, <span class="string">'d'</span>, <span class="string">'a'</span>], columns=[<span class="string">'two'</span>, <span class="string">'three'</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">49</span>]: df</span><br><span class="line">Out[<span class="number">49</span>]:</span><br><span class="line">   two three</span><br><span class="line">r  NaN   NaN</span><br><span class="line">d  <span class="number">4.0</span>   NaN</span><br><span class="line">a  <span class="number">1.0</span>   NaN</span><br></pre></td></tr></table></figure></p>
+<p>可以使用dataframe.index和dataframe.columns来查看DataFrame的行和列，dataframe.values则以数组的形式返回DataFrame的元素：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">50</span>]: df.index</span><br><span class="line">Out[<span class="number">50</span>]: Index([<span class="string">'r'</span>, <span class="string">'d'</span>, <span class="string">'a'</span>], dtype=<span class="string">'object'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">51</span>]: df.columns</span><br><span class="line">Out[<span class="number">51</span>]: Index([<span class="string">'two'</span>, <span class="string">'three'</span>], dtype=<span class="string">'object'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">52</span>]: df.values</span><br><span class="line">Out[<span class="number">52</span>]:</span><br><span class="line">array([[nan, nan],</span><br><span class="line">       [<span class="number">4.0</span>, nan],</span><br><span class="line">       [<span class="number">1.0</span>, nan]], dtype=object)</span><br></pre></td></tr></table></figure>
+<p>DataFrame也可以从值是数组的字典创建，但是各个数组的长度需要相同：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">53</span>]: d = &#123;<span class="string">'one'</span>: [<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">4.</span>], <span class="string">'two'</span>: [<span class="number">4.</span>, <span class="number">3.</span>, <span class="number">2.</span>, <span class="number">1.</span>]&#125;</span><br><span class="line"></span><br><span class="line">In [<span class="number">54</span>]: df = DataFrame(d, index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">55</span>]: df</span><br><span class="line">Out[<span class="number">55</span>]:</span><br><span class="line">   one  two</span><br><span class="line">a  <span class="number">1.0</span>  <span class="number">4.0</span></span><br><span class="line">b  <span class="number">2.0</span>  <span class="number">3.0</span></span><br><span class="line">c  <span class="number">3.0</span>  <span class="number">2.0</span></span><br><span class="line">d  <span class="number">4.0</span>  <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>值非数组时，没有这一限制，并且缺失值补成NaN：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">56</span>]: d= [&#123;<span class="string">'a'</span>: <span class="number">1.6</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;, &#123;<span class="string">'a'</span>: <span class="number">3</span>, <span class="string">'b'</span>: <span class="number">6</span>, <span class="string">'c'</span>: <span class="number">9</span>&#125;]</span><br><span class="line">    ...: df = DataFrame(d)</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">57</span>]: df</span><br><span class="line">Out[<span class="number">57</span>]:</span><br><span class="line">     a  b    c</span><br><span class="line"><span class="number">0</span>  <span class="number">1.6</span>  <span class="number">2</span>  NaN</span><br><span class="line"><span class="number">1</span>  <span class="number">3.0</span>  <span class="number">6</span>  <span class="number">9.0</span></span><br></pre></td></tr></table></figure>
+<p>在实际处理数据时，有时需要创建一个空的DataFrame，可以这么做<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">58</span>]: df = DataFrame()</span><br><span class="line"></span><br><span class="line">In [<span class="number">59</span>]: df</span><br><span class="line">Out[<span class="number">59</span>]:</span><br><span class="line">Empty DataFrame</span><br><span class="line">Columns: []</span><br><span class="line">Index: []</span><br></pre></td></tr></table></figure></p>
+<p>另一种创建DataFrame的方法十分有用，那就是使用concat函数基于Series或者DataFrame创建一个DataFrame</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">62</span>]: a = Series(range(<span class="number">5</span>))</span><br><span class="line">    ...: b = Series(np.linspace(<span class="number">4</span>, <span class="number">20</span>, <span class="number">5</span>))</span><br><span class="line">    ...: df = pd.concat([a, b], axis=<span class="number">1</span>)</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">63</span>]: df</span><br><span class="line">Out[<span class="number">63</span>]:</span><br><span class="line">   <span class="number">0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0</span>   <span class="number">4.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">1</span>   <span class="number">8.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">12.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">16.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">4</span>  <span class="number">20.0</span></span><br></pre></td></tr></table></figure>
+<p>其中的axis=1表示按列进行合并，axis=0表示按行合并，并且，Series都处理成一列，所以这里如果选axis=0的话，将得到一个10×1的DataFrame。下面这个例子展示了如何按行合并DataFrame成一个大的DataFrame：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">64</span>]: df = DataFrame()</span><br><span class="line">    ...: index = [<span class="string">'alpha'</span>, <span class="string">'beta'</span>, <span class="string">'gamma'</span>, <span class="string">'delta'</span>, <span class="string">'eta'</span>]</span><br><span class="line">    ...: <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    ...:     a = DataFrame([np.linspace(i, <span class="number">5</span>*i, <span class="number">5</span>)], index=[index[i]])</span><br><span class="line">    ...:     df = pd.concat([df, a], axis=<span class="number">0</span>)</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">65</span>]: df</span><br><span class="line">Out[<span class="number">65</span>]:</span><br><span class="line">         <span class="number">0</span>    <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">alpha  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0.0</span>   <span class="number">0.0</span>   <span class="number">0.0</span></span><br><span class="line">beta   <span class="number">1.0</span>  <span class="number">2.0</span>   <span class="number">3.0</span>   <span class="number">4.0</span>   <span class="number">5.0</span></span><br><span class="line">gamma  <span class="number">2.0</span>  <span class="number">4.0</span>   <span class="number">6.0</span>   <span class="number">8.0</span>  <span class="number">10.0</span></span><br><span class="line">delta  <span class="number">3.0</span>  <span class="number">6.0</span>   <span class="number">9.0</span>  <span class="number">12.0</span>  <span class="number">15.0</span></span><br><span class="line">eta    <span class="number">4.0</span>  <span class="number">8.0</span>  <span class="number">12.0</span>  <span class="number">16.0</span>  <span class="number">20.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame数据的访问"><a href="#DataFrame数据的访问" class="headerlink" title="DataFrame数据的访问"></a>DataFrame数据的访问</h3><p>首先，再次强调一下DataFrame是以列作为操作的基础的，全部操作都想象成先从DataFrame里取一列，再从这个Series取元素即可。可以用datafrae.column_name选取列，也可以使用dataframe[]操作选取列，我们可以马上发现前一种方法只能选取一列，而后一种方法可以选择多列。若DataFrame没有列名，[]可以使用非负整数，也就是“下标”选取列；若有列名，则必须使用列名选取，另外datafrae.column_name在没有列名的时候是无效的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">66</span>]: df[<span class="number">1</span>]</span><br><span class="line">Out[<span class="number">66</span>]:</span><br><span class="line">alpha    <span class="number">0.0</span></span><br><span class="line">beta     <span class="number">2.0</span></span><br><span class="line">gamma    <span class="number">4.0</span></span><br><span class="line">delta    <span class="number">6.0</span></span><br><span class="line">eta      <span class="number">8.0</span></span><br><span class="line">Name: <span class="number">1</span>, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">67</span>]: type(df[<span class="number">1</span>])</span><br><span class="line">Out[<span class="number">67</span>]: pandas.core.series.Series</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">71</span>]: df.columns = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">72</span>]: df[<span class="string">'b'</span>]</span><br><span class="line">Out[<span class="number">72</span>]:</span><br><span class="line">alpha    <span class="number">0.0</span></span><br><span class="line">beta     <span class="number">2.0</span></span><br><span class="line">gamma    <span class="number">4.0</span></span><br><span class="line">delta    <span class="number">6.0</span></span><br><span class="line">eta      <span class="number">8.0</span></span><br><span class="line">Name: b, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">78</span>]: df.b</span><br><span class="line">Out[<span class="number">78</span>]:</span><br><span class="line">alpha    <span class="number">0.0</span></span><br><span class="line">beta     <span class="number">2.0</span></span><br><span class="line">gamma    <span class="number">4.0</span></span><br><span class="line">delta    <span class="number">6.0</span></span><br><span class="line">eta      <span class="number">8.0</span></span><br><span class="line">Name: b, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">79</span>]: df[[<span class="string">'a'</span>,<span class="string">'b'</span>]]</span><br><span class="line">Out[<span class="number">79</span>]:</span><br><span class="line">         a    b</span><br><span class="line">alpha  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line">beta   <span class="number">1.0</span>  <span class="number">2.0</span></span><br><span class="line">gamma  <span class="number">2.0</span>  <span class="number">4.0</span></span><br><span class="line">delta  <span class="number">3.0</span>  <span class="number">6.0</span></span><br><span class="line">eta    <span class="number">4.0</span>  <span class="number">8.0</span></span><br></pre></td></tr></table></figure>
+<p>以上代码使用了dataframe.columns为DataFrame赋列名，并且我们看到单独取一列出来，其数据结构显示的是Series，取两列及两列以上的结果仍然是DataFrame。访问特定的元素可以如Series一样使用下标或者是索引:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">84</span>]: df.b[<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">84</span>]: <span class="number">4.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">85</span>]: df.b.gamma</span><br><span class="line">Out[<span class="number">85</span>]: <span class="number">4.0</span></span><br></pre></td></tr></table></figure>
+<p>若需要选取行，可以使用dataframe.iloc按下标选取，或者使用dataframe.loc按索引选取：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">86</span>]: df.iloc[<span class="number">1</span>]</span><br><span class="line">Out[<span class="number">86</span>]:</span><br><span class="line">a    <span class="number">1.0</span></span><br><span class="line">b    <span class="number">2.0</span></span><br><span class="line">c    <span class="number">3.0</span></span><br><span class="line">d    <span class="number">4.0</span></span><br><span class="line">e    <span class="number">5.0</span></span><br><span class="line">Name: beta, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">87</span>]: df.loc[<span class="string">'beta'</span>]</span><br><span class="line">Out[<span class="number">87</span>]:</span><br><span class="line">a    <span class="number">1.0</span></span><br><span class="line">b    <span class="number">2.0</span></span><br><span class="line">c    <span class="number">3.0</span></span><br><span class="line">d    <span class="number">4.0</span></span><br><span class="line">e    <span class="number">5.0</span></span><br><span class="line">Name: beta, dtype: float64</span><br></pre></td></tr></table></figure>
+<p>选取行还可以使用切片的方式或者是布尔类型的向量：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">88</span>]: df[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">Out[<span class="number">88</span>]:</span><br><span class="line">         a    b    c    d     e</span><br><span class="line">beta   <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">3.0</span>  <span class="number">4.0</span>   <span class="number">5.0</span></span><br><span class="line">gamma  <span class="number">2.0</span>  <span class="number">4.0</span>  <span class="number">6.0</span>  <span class="number">8.0</span>  <span class="number">10.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">89</span>]: bool_vec = [<span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">False</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">90</span>]: df[bool_vec]</span><br><span class="line">Out[<span class="number">90</span>]:</span><br><span class="line">         a    b    c     d     e</span><br><span class="line">alpha  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0.0</span>   <span class="number">0.0</span></span><br><span class="line">gamma  <span class="number">2.0</span>  <span class="number">4.0</span>  <span class="number">6.0</span>   <span class="number">8.0</span>  <span class="number">10.0</span></span><br><span class="line">delta  <span class="number">3.0</span>  <span class="number">6.0</span>  <span class="number">9.0</span>  <span class="number">12.0</span>  <span class="number">15.0</span></span><br></pre></td></tr></table></figure>
+<p>行列组合起来选取数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">91</span>]: df[[<span class="string">'b'</span>, <span class="string">'d'</span>]].iloc[[<span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line">Out[<span class="number">91</span>]:</span><br><span class="line">         b     d</span><br><span class="line">beta   <span class="number">2.0</span>   <span class="number">4.0</span></span><br><span class="line">delta  <span class="number">6.0</span>  <span class="number">12.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">92</span>]: df.iloc[[<span class="number">1</span>, <span class="number">3</span>]][[<span class="string">'b'</span>, <span class="string">'d'</span>]]</span><br><span class="line">Out[<span class="number">92</span>]:</span><br><span class="line">         b     d</span><br><span class="line">beta   <span class="number">2.0</span>   <span class="number">4.0</span></span><br><span class="line">delta  <span class="number">6.0</span>  <span class="number">12.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">93</span>]: df[[<span class="string">'b'</span>, <span class="string">'d'</span>]].loc[[<span class="string">'beta'</span>, <span class="string">'delta'</span>]]</span><br><span class="line">Out[<span class="number">93</span>]:</span><br><span class="line">         b     d</span><br><span class="line">beta   <span class="number">2.0</span>   <span class="number">4.0</span></span><br><span class="line">delta  <span class="number">6.0</span>  <span class="number">12.0</span></span><br></pre></td></tr></table></figure>
+<p>如果不是需要访问特定行列，而只是某个特殊位置的元素的话，dataframe.at和dataframe.iat是最快的方式，它们分别用于使用索引和下标进行访问：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">94</span>]: df.iat[<span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">Out[<span class="number">94</span>]: <span class="number">8.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">95</span>]: df.at[<span class="string">'gamma'</span>, <span class="string">'d'</span>]</span><br><span class="line">Out[<span class="number">95</span>]: <span class="number">8.0</span></span><br></pre></td></tr></table></figure>
+<p>dataframe.ix可以混合使用索引和下标进行访问，唯一需要注意的地方是行列内部需要一致，不可以同时使用索引和标签访问行或者列，不然的话，将会得到意外的结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">97</span>]: df.ix[[<span class="number">1</span>, <span class="number">2</span>], [<span class="string">'b'</span>, <span class="string">'e'</span>]]</span><br><span class="line">Out[<span class="number">97</span>]:</span><br><span class="line">         b     e</span><br><span class="line">beta   <span class="number">2.0</span>   <span class="number">5.0</span></span><br><span class="line">gamma  <span class="number">4.0</span>  <span class="number">10.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">98</span>]: df.ix[[<span class="number">1</span>, <span class="number">2</span>], [<span class="string">'b'</span>, <span class="number">4</span>]]</span><br><span class="line">Out[<span class="number">98</span>]:</span><br><span class="line">         b   <span class="number">4</span></span><br><span class="line">beta   <span class="number">2.0</span> NaN</span><br><span class="line">gamma  <span class="number">4.0</span> NaN</span><br></pre></td></tr></table></figure>
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

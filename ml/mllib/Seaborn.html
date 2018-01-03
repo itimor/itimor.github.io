@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>用Seaborn实现可视化 — Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="用Seaborn实现可视化 — Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "mllib"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/index.html" class="sidebar-link">Numpy入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas1.html" class="sidebar-link">Pandas入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas2.html" class="sidebar-link">Pandas进阶</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Seaborn.html" class="sidebar-link current">用Seaborn实现可视化</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content mllib with-sidebar ">
+  
+    
+  
+  
+    <h1>用Seaborn实现可视化</h1>
+  
+  <p><strong>前言</strong></p>
+<p>提升你的洞察的最好方法之一是通过可视化你的数据：这样，你可以更容易地识别模式，掌握到困难的概念以及注意到关键的要素，当你使用数据科学中的Python时，你很有可能已经用了Matplotlib,一个供你创建高质量图像的2D库。另一个免费的可视化库是Seabon,他提供了一个绘制统计图形的高级接口。</p>
+<p>这篇文章覆盖了大部分常见问题，当用户开始用Seaborn库的时候，下面有多少问题，你能正确地回答。</p>
+<ul>
+<li>1.用Seaborn VS Matplotlib ？</li>
+<li>2.如何装载数据来构建Seaborn点</li>
+<li>3.如何显示Seaborn点</li>
+<li>4.如何在默认matplotlib的情况下，使用Seaborn</li>
+<li>5.如何调整Seaborn的上下文环境</li>
+<li>6.如何调整图像样式</li>
+<li>7.如何旋转标签文字</li>
+<li>8.如何设置X/Y坐标</li>
+<li>9.如何设置刻度</li>
+<li>10.如何添加标题</li>
+</ul>
+<p><strong>原文地址</strong>：<a href="https://www.datacamp.com/community/tutorials/seaborn-python-tutorial#sm" target="_blank" rel="noopener">https://www.datacamp.com/community/tutorials/seaborn-python-tutorial#sm</a></p>
+<p>如果对Matplotlib及Seaborn感兴趣的话，请参加DataCamp的课程<a href="https://link.jianshu.com/?t=https://www.datacamp.com/courses/introduction-to-data-visualization-with-python" target="_blank" rel="noopener">Introduction to Data Visualization with Python</a>.</p>
+<h2 id="Seaborn-vs-Matplotlib"><a href="#Seaborn-vs-Matplotlib" class="headerlink" title="Seaborn vs Matplotlib"></a>Seaborn vs Matplotlib</h2><p>正如你所知道的，Seaborn是比Matplotlib更高级的免费库，特别地以数据可视化为目标，但他要比这一切更进一步：他解决了用Matplotlib的2个最大问题，正如Michael Waskom所说的：Matplotlib试着让简单的事情更加简单，困难的事情变得可能，那么Seaborn就是让困难的东西更加简单。</p>
+<p>用Matplotlib最大的困难是其默认的各种参数，而Seaborn则完全避免了这一问题。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import the necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize Figure and Axes object</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load in data</span></span><br><span class="line">tips =   pd.read_csv(<span class="string">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create violinplot</span></span><br><span class="line">ax.violinplot(tips[<span class="string">"total_bill"</span>], vert=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/b5fb2a19.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import the necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the data</span></span><br><span class="line">tips =       pd.read_csv(<span class="string">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create violinplot</span></span><br><span class="line">sns.violinplot(x = <span class="string">"total_bill"</span>, data=tips)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/2b4ce28f.png" alt=""></p>
+<p>Matplotlib的默认风格，通常不会增加颜色以及坐标轴的刻度标签以及样式。<br>而且Seaborn是Matplotlib的延伸和扩展，如果你知道Matplotlib，你就已经掌握了Seaborn的大部分；</p>
+<h2 id="如何加载数据构建Seaborn图像"><a href="#如何加载数据构建Seaborn图像" class="headerlink" title="如何加载数据构建Seaborn图像"></a>如何加载数据构建Seaborn图像</h2><p>当您使用Seaborn时，您可以使用库本身提供的内置数据集之一，也可以加载Pandas DataFrame。</p>
+<h3 id="装载内置海床数据集"><a href="#装载内置海床数据集" class="headerlink" title="装载内置海床数据集"></a>装载内置海床数据集</h3><p>要开始使用内置的Seaborn数据集，可以使用load_dataset（）函数。 要查看内置的所有数据集，请点击此处查看 <a href="https://github.com/mwaskom/seaborn-data" target="_blank" rel="noopener">https://github.com/mwaskom/seaborn-data</a> 。 请查看以下示例来查看load_dataset（）函数的工作原理</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iris data</span></span><br><span class="line">iris = sns.load_dataset(<span class="string">"iris"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Construct iris plot</span></span><br><span class="line">sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"petal_length"</span>, data=iris)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/0cd3ba89.png" alt=""></p>
+<h3 id="加载您自己的DataFrame数据集"><a href="#加载您自己的DataFrame数据集" class="headerlink" title="加载您自己的DataFrame数据集"></a>加载您自己的DataFrame数据集</h3><p>当然，数据可视化的大部分场景您将使用自己的数据，而不是Seaborn库的内置数据集。 Seaborn最适用于包含整个数据集的Pandas DataFrames和数组</p>
+<p>DataFrames是一种在矩形网格中存储数据的方法，DataFrame的行不需要包含相同类型的值：它们可以是数字，字符，逻辑等。特别是对于Python，DataFrames集成于Pandas库中，它们被定义为具有潜在不同类型的列的二维标记数据结构。</p>
+<p>Seaborn对DataFrames非常好的原因是，因为DataFrames的标签会自动传播到绘图或其他数据结构，正如本教程的第一个示例所示，您在Seaborn中绘制了一个小提琴。在那里，你看到x轴有一个传说total_bill，而Matplotlib图则不是这样。这已经需要很多工作了。</p>
+<p>但这并不意味着所有的工作都完成了 - 恰恰相反。在许多情况下，您仍然需要操作您的Pandas DataFrame，以使绘图正确呈现。如果您想了解更多信息，请查看DataCamp的Python中的DataFrames Pandas教程或Pandas Foundations课程</p>
+<p>Matplotlib仍然是Seaborn的基础，这意味着结构仍然是一样的，您需要使用plt.show（）使图像显示给您。 您可能已经从本教程上一个示例中看到过。 在任何情况下，这里是另一个例子，其中show（）函数用于显示绘图</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import necessarily libraries</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load data</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">"titanic"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set up a factorplot</span></span><br><span class="line">g = sns.factorplot(<span class="string">"class"</span>, <span class="string">"survived"</span>, <span class="string">"sex"</span>, data=titanic, kind=<span class="string">"bar"</span>, palette=<span class="string">"muted"</span>, legend=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="如何显示Seaborn点"><a href="#如何显示Seaborn点" class="headerlink" title="如何显示Seaborn点"></a>如何显示Seaborn点</h2><p>matplotlib仍然是Seaborn的基础，这意味着绘图方面两者仍然是相同的，你就需要使用plt.show()显示图像。您可能已经在本教程的前一个示例中看到了这一点。在任何情况下，下面是另一个示例, 其中show() 函数用于显示图像：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import necessarily libraries</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load data</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">"titanic"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set up a factorplot</span></span><br><span class="line">g = sns.factorplot(<span class="string">"class"</span>, <span class="string">"survived"</span>, <span class="string">"sex"</span>, data=titanic, kind=<span class="string">"bar"</span>, palette=<span class="string">"muted"</span>, legend=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/bba0fd1a.png" alt=""></p>
+<blockquote>
+<p>注意：在上面的代码块中, 您使用内置的 Seaborn 数据集, 并使用它创建一个 factorplot。factorplot 是一个多类型绘图，上面例子中是一个柱状图，因为你设置的参数为’柱状’，同时, 你还可以应设置颜色参数, 并将图例设置为 False</p>
+</blockquote>
+<h2 id="如何使用Seaborn用Matplotlib的默认值"><a href="#如何使用Seaborn用Matplotlib的默认值" class="headerlink" title="如何使用Seaborn用Matplotlib的默认值"></a>如何使用Seaborn用Matplotlib的默认值</h2><p>也有很多相反的场景，即那些使用Seaborn并希望用Matplotlib默认设置的问题。</p>
+<p>之前，您可以通过从Seaborn包导入apionly模块来解决这个问题。 现在已经弃用了（自2017年7月起）。 导入Seaborn时，不再应用默认样式，因此您需要显式调用set（）或set_style（），set_context（）和set_palette（）中的一个或多个以获取Seaborn或Matplotlib默认的绘图。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import Matplotlib</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check the available styles</span></span><br><span class="line">plt.style.available</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use Matplotlib defaults</span></span><br><span class="line">plt.style.use(<span class="string">"classic"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="如何在Matplotlib中使用Seaborn的颜色作为色彩？"><a href="#如何在Matplotlib中使用Seaborn的颜色作为色彩？" class="headerlink" title="如何在Matplotlib中使用Seaborn的颜色作为色彩？"></a>如何在Matplotlib中使用Seaborn的颜色作为色彩？</h2><p>如何将Seaborn颜色引入Matplotlib图中的问题。 您可以使用color_palette（）来定义要使用的颜色映射和参数n_colors的颜色数。 在这种情况下，这个例子将假设有5个标签分配给在data1和data2中定义的数据点，所以这就是为什么你传递5到这个参数，你也做一个长度等于N的列表，其中5个整数变化 在可变颜色</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import the necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define a variable N</span></span><br><span class="line">N = <span class="number">500</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Construct the colormap</span></span><br><span class="line">current_palette = sns.color_palette(<span class="string">"muted"</span>, n_colors=<span class="number">5</span>)</span><br><span class="line">cmap = ListedColormap(sns.color_palette(current_palette).as_hex())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize the data</span></span><br><span class="line">data1 = np.random.randn(N)</span><br><span class="line">data2 = np.random.randn(N)</span><br><span class="line"><span class="comment"># Assume that there are 5 possible labels</span></span><br><span class="line">colors = np.random.randint(<span class="number">0</span>,<span class="number">5</span>,N)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a scatter plot</span></span><br><span class="line">plt.scatter(data1, data2, c=colors, cmap=cmap)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add a color bar</span></span><br><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+<p><img src="images/50033c1e.png" alt=""></p>
+<h2 id="如何在Seaborn中旋转标签文本"><a href="#如何在Seaborn中旋转标签文本" class="headerlink" title="如何在Seaborn中旋转标签文本"></a>如何在Seaborn中旋转标签文本</h2><p>要在Seaborn图中旋转标签文本，您需要处理图级别。 请注意，在下面的代码块中，您可以使用FacetGrid方法之一，即set_xticklabels来旋转文本</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import the necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize the data</span></span><br><span class="line">x = <span class="number">10</span> ** np.arange(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">y = x * <span class="number">2</span></span><br><span class="line">data = pd.DataFrame(data=&#123;<span class="string">'x'</span>: x, <span class="string">'y'</span>: y&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an lmplot</span></span><br><span class="line">grid = sns.lmplot(<span class="string">'x'</span>, <span class="string">'y'</span>, data, size=<span class="number">7</span>, truncate=<span class="keyword">True</span>, scatter_kws=&#123;<span class="string">"s"</span>: <span class="number">100</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Rotate the labels on x-axis</span></span><br><span class="line">grid.set_xticklabels(rotation=<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the plot</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/b84436f2.png" alt=""></p>
+
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

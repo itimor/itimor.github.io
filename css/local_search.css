@@ -1,0 +1,108 @@
+.local-search-input {
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box;
+  padding: 0 15px 0 30px;
+  border: 1px solid #e3e3e3;
+  color: #2c3e50;
+  outline: none;
+  border-radius: 15px;
+  margin-right: 10px;
+  transition: border-color 0.2s ease;
+  background: #fff url("../images/search.png") 8px 5px no-repeat;
+  background-size: 20px;
+  vertical-align: middle !important;
+}
+.local-search-input:focus {
+  border-color: #4fc08d;
+}
+#local-search-close {
+  content: 'x';
+  position: absolute;
+  right: 25px;
+  top: -10px;
+  background: #f5f5f5;
+  color: #888;
+  border-radius: 100%;
+  line-height: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-family: consolas;
+  border: 1px solid #c7c7c7;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: bold;
+}
+#local-search-close:hover {
+  transform: rotateZ(180deg);
+  border-color: #c5c5c5;
+  color: #f81925;
+  transition: all 0.15s;
+}
+.local-search-result {
+  position: absolute;
+  z-index: 99;
+  width: 350px;
+  top: 70px;
+}
+.local-search-result .local-search-empty {
+  color: #888;
+  line-height: 44px;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+}
+.local-search-result ul {
+  width: 300px;
+  max-height: 450px;
+  min-height: 0;
+  height: auto;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  box-shadow: 1px 2px 4px #ccc;
+}
+.local-search-result ul li {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  line-height: 30px;
+  font-weight: normal;
+}
+.local-search-result ul li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.local-search-result ul li p {
+  margin-top: -5px;
+  font-size: 14px;
+  max-height: 120px;
+  overflow: hidden;
+}
+.local-search-result ul li em.search-keyword {
+  color: #4fc08d;
+}
+.local-search-plugin .local-search-input {
+  opacity: 0.6;
+  width: 160px;
+  transition: all 0.3s;
+}
+.local-search-plugin .local-search-input:hover {
+  opacity: 1;
+  width: 200px;
+  transition: all 0.3s;
+}
+.local-search-plugin .icon {
+  position: relative;
+  left: -30px;
+  color: #999;
+  cursor: pointer;
+}
+.search-result-title {
+  color: #ffad92;
+  font-size: 16px;
+}

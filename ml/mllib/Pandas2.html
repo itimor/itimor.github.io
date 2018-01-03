@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Pandas进阶 — Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pandas进阶 — Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "mllib"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/index.html" class="sidebar-link">Numpy入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas1.html" class="sidebar-link">Pandas入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas2.html" class="sidebar-link current">Pandas进阶</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Seaborn.html" class="sidebar-link">用Seaborn实现可视化</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content mllib with-sidebar ">
+  
+    
+  
+  
+    <h1>Pandas进阶</h1>
+  
+  <p>在上一篇中我们介绍了如何创建并访问pandas的Series和DataFrame型的数据，本篇将介绍如何对pandas数据进行操作，掌握这些操作之后，基本可以处理大多数的数据了。首先，导入本篇中使用到的模块：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
+<p>为了看数据方便一些，我们设置一下输出屏幕的宽度<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.set_option(<span class="string">'display.width'</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="数据创建的其他方式"><a href="#数据创建的其他方式" class="headerlink" title="数据创建的其他方式"></a>数据创建的其他方式</h2><p>数据结构的创建不止是上篇中介绍的标准形式，本篇再介绍几种。例如，我们可以创建一个以日期为元素的Series：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">3</span>]: dates = pd.date_range(<span class="string">'20150101'</span>, periods=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: dates</span><br><span class="line">Out[<span class="number">4</span>]: DatetimeIndex([<span class="string">'2015-01-01'</span>, <span class="string">'2015-01-02'</span>, <span class="string">'2015-01-03'</span>, <span class="string">'2015-01-04'</span>, <span class="string">'2015-01-05'</span>], dtype=<span class="string">'datetime64[ns]'</span>, freq=<span class="string">'D'</span>)</span><br></pre></td></tr></table></figure>
+<p>将这个日期Series作为索引赋给一个DataFrame：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">6</span>]: df = pd.DataFrame(np.random.randn(<span class="number">5</span>, <span class="number">4</span>),index=dates,columns=list(<span class="string">'ABCD'</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: df</span><br><span class="line">Out[<span class="number">7</span>]:</span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2015</span><span class="number">-01</span><span class="number">-01</span> <span class="number">-1.920304</span>  <span class="number">1.384082</span> <span class="number">-1.371671</span> <span class="number">-0.148773</span></span><br><span class="line"><span class="number">2015</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">0.250032</span> <span class="number">-0.086736</span>  <span class="number">1.213414</span> <span class="number">-0.882525</span></span><br><span class="line"><span class="number">2015</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.711571</span> <span class="number">-0.518825</span>  <span class="number">0.517639</span>  <span class="number">0.671488</span></span><br><span class="line"><span class="number">2015</span><span class="number">-01</span><span class="number">-04</span> <span class="number">-0.065331</span> <span class="number">-1.303340</span> <span class="number">-0.234200</span>  <span class="number">1.110965</span></span><br><span class="line"><span class="number">2015</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-1.258520</span> <span class="number">-0.547136</span> <span class="number">-0.292265</span> <span class="number">-0.842314</span></span><br></pre></td></tr></table></figure>
+<p>只要是能转换成Series的对象，都可以用于创建DataFrame：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">8</span>]: df2 = pd.DataFrame(&#123; <span class="string">'A'</span> : <span class="number">1.</span>, <span class="string">'B'</span>: pd.Timestamp(<span class="string">'20150214'</span>), <span class="string">'C'</span>: pd.Series(<span class="number">1.6</span>,index=list(range(<span class="number">4</span>)),dtype=<span class="string">'float64'</span>), <span class="string">'D'</span> : np.array([<span class="number">4</span>] * <span class="number">4</span>, dtype=<span class="string">'int64'</span>), <span class="string">'E'</span> : <span class="string">'hello pandas!'</span> &#125;)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: df2</span><br><span class="line">Out[<span class="number">9</span>]:</span><br><span class="line">     A          B    C  D              E</span><br><span class="line"><span class="number">0</span>  <span class="number">1.0</span> <span class="number">2015</span><span class="number">-02</span><span class="number">-14</span>  <span class="number">1.6</span>  <span class="number">4</span>  hello pandas!</span><br><span class="line"><span class="number">1</span>  <span class="number">1.0</span> <span class="number">2015</span><span class="number">-02</span><span class="number">-14</span>  <span class="number">1.6</span>  <span class="number">4</span>  hello pandas!</span><br><span class="line"><span class="number">2</span>  <span class="number">1.0</span> <span class="number">2015</span><span class="number">-02</span><span class="number">-14</span>  <span class="number">1.6</span>  <span class="number">4</span>  hello pandas!</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span> <span class="number">2015</span><span class="number">-02</span><span class="number">-14</span>  <span class="number">1.6</span>  <span class="number">4</span>  hello pandas!</span><br></pre></td></tr></table></figure>
+<h2 id="Pandas-处理丢失数据"><a href="#Pandas-处理丢失数据" class="headerlink" title="Pandas 处理丢失数据"></a>Pandas 处理丢失数据</h2><p>有时候我们导入或处理数据, 会产生一些空的或者是 NaN 数据,如何删除或者是填补这些 NaN 数据就是我们今天所要提到的内容.</p>
+<p>建立了一个6X4的矩阵数据并且把两个位置置为空.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">13</span>]: dates = pd.date_range(<span class="string">'20130101'</span>, periods=<span class="number">6</span>)</span><br><span class="line">    ...: df = pd.DataFrame(np.arange(<span class="number">24</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=dates, columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>])</span><br><span class="line">    ...: df.iloc[<span class="number">0</span>,<span class="number">1</span>] = np.nan</span><br><span class="line">    ...: df.iloc[<span class="number">1</span>,<span class="number">2</span>] = np.nan</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: df</span><br><span class="line">Out[<span class="number">14</span>]:</span><br><span class="line">             A     B     C   D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>   <span class="number">0</span>   NaN   <span class="number">2.0</span>   <span class="number">3</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>   <span class="number">4</span>   <span class="number">5.0</span>   NaN   <span class="number">7</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>   <span class="number">8</span>   <span class="number">9.0</span>  <span class="number">10.0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">12</span>  <span class="number">13.0</span>  <span class="number">14.0</span>  <span class="number">15</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="number">16</span>  <span class="number">17.0</span>  <span class="number">18.0</span>  <span class="number">19</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="number">20</span>  <span class="number">21.0</span>  <span class="number">22.0</span>  <span class="number">23</span></span><br></pre></td></tr></table></figure>
+<p>pd.dropna()</p>
+<p>如果想直接去掉有 NaN 的行或列, 可以使用 dropna</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">15</span>]: df.dropna(</span><br><span class="line">    ...:     axis=<span class="number">0</span>,     <span class="comment"># 0: 对行进行操作; 1: 对列进行操作</span></span><br><span class="line">    ...:     how=<span class="string">'any'</span>   <span class="comment"># 'any': 只要存在 NaN 就 drop 掉; 'all': 必须全部是 NaN 才 drop</span></span><br><span class="line">    ...:     )</span><br><span class="line">    ...:</span><br><span class="line">Out[<span class="number">15</span>]:</span><br><span class="line">             A     B     C   D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>   <span class="number">8</span>   <span class="number">9.0</span>  <span class="number">10.0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">12</span>  <span class="number">13.0</span>  <span class="number">14.0</span>  <span class="number">15</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="number">16</span>  <span class="number">17.0</span>  <span class="number">18.0</span>  <span class="number">19</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="number">20</span>  <span class="number">21.0</span>  <span class="number">22.0</span>  <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>pd.fillna()</p>
+<p>如果是将 NaN 的值用其他值代替, 比如代替成 0:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">16</span>]: df.fillna(value=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">16</span>]:</span><br><span class="line">             A     B     C   D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>   <span class="number">0</span>   <span class="number">0.0</span>   <span class="number">2.0</span>   <span class="number">3</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>   <span class="number">4</span>   <span class="number">5.0</span>   <span class="number">0.0</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>   <span class="number">8</span>   <span class="number">9.0</span>  <span class="number">10.0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">12</span>  <span class="number">13.0</span>  <span class="number">14.0</span>  <span class="number">15</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="number">16</span>  <span class="number">17.0</span>  <span class="number">18.0</span>  <span class="number">19</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="number">20</span>  <span class="number">21.0</span>  <span class="number">22.0</span>  <span class="number">23</span></span><br></pre></td></tr></table></figure>
+<p>pd.isnull()</p>
+<p>判断是否有缺失数据 NaN, 为 True 表示缺失数据:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">17</span>]: df.isnull()</span><br><span class="line">Out[<span class="number">17</span>]:</span><br><span class="line">                A      B      C      D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="keyword">False</span>   <span class="keyword">True</span>  <span class="keyword">False</span>  <span class="keyword">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="keyword">False</span>  <span class="keyword">False</span>   <span class="keyword">True</span>  <span class="keyword">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span>  <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>检测在数据中是否存在 NaN, 如果存在就返回 True:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">18</span>]: np.any(df.isnull()) == <span class="keyword">True</span></span><br><span class="line">Out[<span class="number">18</span>]: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="Pandas-导入导出"><a href="#Pandas-导入导出" class="headerlink" title="Pandas 导入导出"></a>Pandas 导入导出</h2><p>pandas可以读取与存取的资料格式有很多种，像csv、excel、json、html与pickle等…， 详细请看<a href="http://pandas.pydata.org/pandas-docs/stable/io.html" target="_blank" rel="noopener">官方说明文件</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#读取csv</span></span><br><span class="line">data = pd.read_csv(<span class="string">'students.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印出data</span></span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将资料存取成pickle</span></span><br><span class="line">data.to_pickle(<span class="string">'student.pickle'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Pandas-合并-concat"><a href="#Pandas-合并-concat" class="headerlink" title="Pandas 合并 concat"></a>Pandas 合并 concat</h2><p>pandas处理多组数据的时候往往会要用到数据的合并处理,使用 concat是一种基本的合并方式.而且concat中有很多参数可以调整,合并成你想要的数据形式.</p>
+<h3 id="axis-合并方向"><a href="#axis-合并方向" class="headerlink" title="axis (合并方向)"></a>axis (合并方向)</h3><p>axis=0是预设值，因此未设定任何参数时，函数默认axis=0。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">21</span>]: <span class="comment">#定义资料集</span></span><br><span class="line">    ...: df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">    ...: df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">    ...: df3 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">2</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">22</span>]: <span class="comment">#concat纵向合并</span></span><br><span class="line">    ...: res = pd.concat([df1, df2, df3], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">23</span>]: res</span><br><span class="line">Out[<span class="number">23</span>]:</span><br><span class="line">     a    b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+<p>仔细观察会发现结果的index是0, 1, 2, 0, 1, 2, 0, 1, 2，若要将index重置，请看下面</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">24</span>]: res = pd.concat([df1, df2, df3], axis=<span class="number">0</span>, ignore_index=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: res</span><br><span class="line">Out[<span class="number">25</span>]:</span><br><span class="line">     a    b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">6</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">7</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">8</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span>  <span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="join-合并方式"><a href="#join-合并方式" class="headerlink" title="join (合并方式)"></a>join (合并方式)</h3><p>join=’outer’为预设值，因此未设定任何参数时，函数默认join=’outer’。此方式是依照column来做纵向合并，有相同的column上下合并在一起，其他独自的column个自成列，原本没有值的位置皆以NaN填充。</p>
+<p>纵向”外”合并df1与df2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">27</span>]: df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>], index=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">    ...: df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>], index=[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">28</span>]:</span><br><span class="line">    ...: res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'outer'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: res</span><br><span class="line">Out[<span class="number">29</span>]:</span><br><span class="line">     a    b    c    d    e</span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  NaN</span><br><span class="line"><span class="number">3</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  NaN</span><br><span class="line"><span class="number">2</span>  NaN  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">3</span>  NaN  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  NaN  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>纵向”内”合并df1与df2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">32</span>]: res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'inner'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">33</span>]: res</span><br><span class="line">Out[<span class="number">33</span>]:</span><br><span class="line">     b    c    d</span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>重置index</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">34</span>]: res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'inner'</span>, ignore_index=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">35</span>]: res</span><br><span class="line">Out[<span class="number">35</span>]:</span><br><span class="line">     b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="join-axes-依照-axis-合并"><a href="#join-axes-依照-axis-合并" class="headerlink" title="join_axes (依照 axis 合并)"></a>join_axes (依照 axis 合并)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#依照`df1.index`进行横向合并</span></span><br><span class="line">In [<span class="number">36</span>]: res = pd.concat([df1, df2], axis=<span class="number">1</span>, join_axes=[df1.index])</span><br><span class="line"></span><br><span class="line">In [<span class="number">37</span>]: res</span><br><span class="line">Out[<span class="number">37</span>]:</span><br><span class="line">     a    b    c    d    b    c    d    e</span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  NaN  NaN  NaN  NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">38</span>]: res = pd.concat([df1, df2], axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#移除join_axes，并打印结果</span></span><br><span class="line">In [<span class="number">39</span>]: res</span><br><span class="line">Out[<span class="number">39</span>]:</span><br><span class="line">     a    b    c    d    b    c    d    e</span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  NaN  NaN  NaN  NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  NaN  NaN  NaN  NaN  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="append-添加数据"><a href="#append-添加数据" class="headerlink" title="append (添加数据)"></a>append (添加数据)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">41</span>]: <span class="comment">#将df2合并到df1的下面，以及重置index，并打印出结果</span></span><br><span class="line">    ...: res = df1.append(df2, ignore_index=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">42</span>]: res</span><br><span class="line">Out[<span class="number">42</span>]:</span><br><span class="line">     a    b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">43</span>]: <span class="comment">#合并多个df，将df2与df3合并至df1的下面，以及重置index，并打印出结果</span></span><br><span class="line">    ...: res = df1.append([df2, df3], ignore_index=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">44</span>]: res</span><br><span class="line">Out[<span class="number">44</span>]:</span><br><span class="line">     a    b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">6</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">7</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">8</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span>  <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">45</span>]: <span class="comment">#合并series，将s1合并至df1，以及重置index，并打印出结果</span></span><br><span class="line">    ...: res = df1.append(s1, ignore_index=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">46</span>]: res</span><br><span class="line">Out[<span class="number">46</span>]:</span><br><span class="line">     a    b    c    d</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">3.0</span>  <span class="number">4.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="Pandas-plot-出图"><a href="#Pandas-plot-出图" class="headerlink" title="Pandas plot 出图"></a>Pandas plot 出图</h2><p>这次我们讲如何将数据可视化. 首先import我们需要用到的模块，除了 pandas，我们也需要使用 numpy 生成一些数据，这节里使用的 matplotlib 仅仅是用来 show 图片的, 即 plt.show()。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<p>今天我们主要是学习如何 plot data</p>
+<h3 id="创建一个Series"><a href="#创建一个Series" class="headerlink" title="创建一个Series"></a>创建一个Series</h3><p>这是一个线性的数据，我们随机生成1000个数据，Series 默认的 index 就是从0开始的整数，但是这里我显式赋值以便让大家看的更清楚</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">48</span>]: data = pd.Series(np.random.randn(<span class="number">1000</span>),index=np.arange(<span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">49</span>]: data.cumsum()</span><br><span class="line"></span><br><span class="line">In [<span class="number">50</span>]: data.plot()</span><br><span class="line">Out[<span class="number">50</span>]: &lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x15fc2c50</span>&gt;</span><br><span class="line"></span><br><span class="line">In [<span class="number">51</span>]: plt.show()</span><br></pre></td></tr></table></figure>
+<p>就这么简单，熟悉 matplotlib 的朋友知道如果需要plot一个数据，我们可以使用 plt.plot(x=, y=)，把x,y的数据作为参数存进去，但是data本来就是一个数据，所以我们可以直接plot。 生成的结果就是下图：<br><img src="images/685666ff.png" alt=""></p>
+<h3 id="Dataframe-可视化"><a href="#Dataframe-可视化" class="headerlink" title="Dataframe 可视化"></a>Dataframe 可视化</h3><p>我们生成一个1000*4 的DataFrame，并对他们累加</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">57</span>]: data = pd.DataFrame(np.random.randn(<span class="number">1000</span>,<span class="number">4</span>),index=np.arange(<span class="number">1000</span>),columns=list(<span class="string">"ABCD"</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">58</span>]: data.cumsum()</span><br><span class="line">Out[<span class="number">58</span>]:</span><br><span class="line">             A          B          C          D</span><br><span class="line"><span class="number">0</span>    <span class="number">-1.149141</span>   <span class="number">0.412332</span>  <span class="number">-2.498230</span>   <span class="number">0.879882</span></span><br><span class="line"><span class="number">1</span>    <span class="number">-1.476303</span>   <span class="number">1.130480</span>  <span class="number">-1.562601</span>   <span class="number">1.252053</span></span><br><span class="line">.....</span><br><span class="line"><span class="number">998</span>  <span class="number">22.211598</span> <span class="number">-38.707320</span> <span class="number">-18.093645</span>  <span class="number">71.655468</span></span><br><span class="line"><span class="number">999</span>  <span class="number">21.762579</span> <span class="number">-37.009749</span> <span class="number">-18.899686</span>  <span class="number">71.275606</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1000</span> rows x <span class="number">4</span> columns]</span><br><span class="line"></span><br><span class="line">In [<span class="number">59</span>]: data.plot()</span><br><span class="line">Out[<span class="number">59</span>]: &lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x199e0e10</span>&gt;</span><br><span class="line">In [<span class="number">60</span>]: plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="images/2c304f5f.png" alt=""></p>
+<p>这个就是我们刚刚生成的4个column的数据，因为有4组数据，所以4组数据会分别plot出来。plot 可以指定很多参数，具体的用法大家可以自己查一下这里</p>
+<p>除了plot，我经常会用到还有scatter，这个会显示散点图，首先给大家说一下在 pandas 中有多少种方法:</p>
+<ul>
+<li>bar</li>
+<li>hist</li>
+<li>box</li>
+<li>kde</li>
+<li>area</li>
+<li>scatter</li>
+<li>hexbin</li>
+</ul>
+<p>但是我们今天不会一一介绍，主要说一下 plot 和 scatter. 因为scatter只有x，y两个属性，我们我们就可以分别给x, y指定数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">63</span>]: ax = data.plot.scatter(x=<span class="string">'A'</span>,y=<span class="string">'B'</span>,color=<span class="string">'DarkBlue'</span>,label=<span class="string">'Class1'</span>)</span><br></pre></td></tr></table></figure>
+<p>然后我们在可以再画一个在同一个ax上面，选择不一样的数据列，不同的 color 和 label</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">64</span>]: data.plot.scatter(x=<span class="string">'A'</span>,y=<span class="string">'C'</span>,color=<span class="string">'LightGreen'</span>,label=<span class="string">'Class2'</span>,ax=ax)</span><br><span class="line">    ...: plt.show()</span><br><span class="line">    ...:</span><br></pre></td></tr></table></figure>
+<p>下面就是我plot出来的图片</p>
+<p><img src="images/df34d36c.png" alt=""></p>
+
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Numpy入门 — Itimor's Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Itimor's Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Numpy入门 — Itimor's Book">
+    <meta property="og:description" content="Itimor's Book">
+    <meta property="og:image" content="https://itimor.github.io//images/logo.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+      
+    <meta name="baidu-site-verification" content="ah99c7kYSG" />
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script>window.PAGE_TYPE = "mllib"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '', 'itimor.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+   <!-- <img src="/images/logo.png"> -->
+    <span>Itimor's Book</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+  </ul>
+</div>
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="local-search-input" class="local-search-input">
+    <div id="local-search-result" class="local-search-result"></div>
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link">机器学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/ml/tensorflow/" class="nav-link">Tensorflow</a></li>
+      <li><a href="/ml/mllib/" class="nav-link current">基础包介绍</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/about/" class="nav-link team">about</a>
+</li>
+    </ul>
+    <div class="list">
+      <h2>
+        
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/index.html" class="sidebar-link current">Numpy入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas1.html" class="sidebar-link">Pandas入门</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Pandas2.html" class="sidebar-link">Pandas进阶</a>
+    </li>
+  
+    
+    
+    
+    <li>
+      <a href="/ml/mllib/Seaborn.html" class="sidebar-link">用Seaborn实现可视化</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content mllib with-sidebar ">
+  
+    
+  
+  
+    <h1>Numpy入门</h1>
+  
+  <h2 id="Numpy介绍"><a href="#Numpy介绍" class="headerlink" title="Numpy介绍"></a>Numpy介绍</h2><p>Numpy是Python的一个开源科学计算的库，提供了矩阵运算的功能，其一般与Scipy、matplotlib一起使用。</p>
+<p>NumPy提供了两种基本的对象：<code>ndarray</code>（N-dimensional array object）和 <code>ufunc</code>（universal function object）。ndarray(下文统一称之为数组)是存储单一数据类型的多维数组，而ufunc则是能够对数组进行处理的函数。</p>
+<p><strong>环境说明</strong>： python3.6</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">print(np.version.version)</span><br><span class="line"><span class="number">1.13</span><span class="number">.3</span></span><br></pre></td></tr></table></figure>
+<h3 id="ndarray"><a href="#ndarray" class="headerlink" title="ndarray"></a>ndarray</h3><p>ndarray是一个多维数组对象，由两部分构成：</p>
+<blockquote>
+<p>实际的数据</p>
+<p>描述这些数据的元数据（数据维度、数据类型等）</p>
+</blockquote>
+<p>ndarray数组一般要求所有元素类型相同（同质），数组下标从0开始;</p>
+<p>在NumPy中数组的维度(dimensions)叫做轴(axis)，轴的个数叫做秩(rank)。</p>
+<h2 id="创建ndarray"><a href="#创建ndarray" class="headerlink" title="创建ndarray"></a>创建ndarray</h2><ul>
+<li>从Python中的列表、元组等类型创建ndarray数组
+　　</li>
+</ul>
+<p>可以使用np.array()方法将Python列表或元组转化为数组，转化后的数组元素的类型由原来的对象的类型来决定。</p>
+<p>（1）一维数组<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.array((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))  <span class="comment">#从元组创建</span></span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br></pre></td></tr></table></figure></p>
+<p>（2）多维数组<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])   <span class="comment">#从列表创建</span></span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],(<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>)])   <span class="comment">#从列表和元组混合类型创建</span></span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br></pre></td></tr></table></figure></p>
+<p>当np.array()不指定dtype时，NumPy将根据数据情况关联一个dtype类型。</p>
+<ul>
+<li>使用NumPy中函数创建ndarray数组，如：arange, ones, zeros等</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>np.arange(n)</td>
+<td>类似range()函数，返回ndarray类型，元素从0到n‐1</td>
+</tr>
+<tr>
+<td>np.ones(shape)</td>
+<td>根据shape生成一个全1数组，shape是元组类型</td>
+</tr>
+<tr>
+<td>np.zeros(shape)</td>
+<td>根据shape生成一个全0数组，shape是元组类型</td>
+</tr>
+<tr>
+<td>np.full(shape,val)</td>
+<td>根据shape生成一个数组，每个元素值都是val</td>
+</tr>
+<tr>
+<td>np.eye(n)</td>
+<td>创建一个正方的n*n单位矩阵，对角线为1，其余为0</td>
+</tr>
+<tr>
+<td>np.ones_like(a)</td>
+<td>根据数组a的形状生成一个全1数组</td>
+</tr>
+<tr>
+<td>np.zeros_like(a)</td>
+<td>根据数组a的形状生成一个全0数组</td>
+</tr>
+<tr>
+<td>np.full_like(a,val)</td>
+<td>根据数组a的形状生成一个数组，每个元素值都是val</td>
+</tr>
+<tr>
+<td>np.linspace()</td>
+<td>根据起止数据等间距地填充数据，形成数组</td>
+</tr>
+<tr>
+<td>np.concatenate()</td>
+<td>将两个或多个数组合并成一个新的数组</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.arange(<span class="number">6</span>)</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones(<span class="number">6</span>)</span><br><span class="line">array([ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.zeros((<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.full((<span class="number">2</span>,<span class="number">2</span>),<span class="number">6</span>)</span><br><span class="line">array([[<span class="number">6</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">6</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.eye(<span class="number">3</span>)</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones_like(a) <span class="comment">#生成一个与a数组相同结构的全1数组</span></span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linspace(<span class="number">1</span>, <span class="number">10</span>, <span class="number">6</span>)   <span class="comment"># 1为起始数，10为终止数，6为数的个数</span></span><br><span class="line">array([  <span class="number">1.</span> ,   <span class="number">2.8</span>,   <span class="number">4.6</span>,   <span class="number">6.4</span>,   <span class="number">8.2</span>,  <span class="number">10.</span> ])</span><br></pre></td></tr></table></figure>
+<h2 id="ndarray的属性"><a href="#ndarray的属性" class="headerlink" title="ndarray的属性"></a>ndarray的属性</h2><p><strong>shape</strong>：一个说明ndarray对象各维度大小的元组；对一个n 行m 列的矩阵来说，shape为 (n,m)。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.shape</span><br><span class="line">(<span class="number">4</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.shape = <span class="number">2</span>, <span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">       [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>k = c.reshape(<span class="number">4</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>k</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>k[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>k</span><br><span class="line">array([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">2</span>]</span><br><span class="line">       [<span class="number">3</span>, <span class="number">4</span>]])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用数组的reshape方法，可以创建一个改变了尺寸的新数组，原数组的shape保持不变。</p>
+<p>k与c共享内存区域，所以修改其中任意一个数组的元素都会同时修改另外一个数组的内容。</p>
+</blockquote>
+<p><strong>dtype</strong>：ndarray对象的元素类型;数组的元素类型可以通过dtype属性获得，可以通过dtype参数在创建时指定元素类型。类型可以是 numpy.int32, numpy.int16, and numpy.float64 等。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.dtype</span><br><span class="line">dtype(<span class="string">'int32'</span>)</span><br></pre></td></tr></table></figure>
+<p>创建数组时也可以指定元素的数据类型:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]], dtype = np.float)</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">2.</span>,  <span class="number">3.</span>,  <span class="number">4.</span>],</span><br><span class="line">       [ <span class="number">5.</span>,  <span class="number">6.</span>,  <span class="number">7.</span>,  <span class="number">8.</span>]])</span><br></pre></td></tr></table></figure></p>
+<p><strong>ndim</strong>：数组的维数，也称为rank(秩)<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.ndim</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>size</strong>：ndarray对象元素的个数<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.size</span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>itemsize</strong>：ndarray对象中每个元素的大小，即占用的字节数。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.itemsize</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>data</strong>：指向数据内存。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.data</span><br><span class="line">&lt;read-write buffer <span class="keyword">for</span> <span class="number">0x02D89E30</span>, size <span class="number">32</span>, offset <span class="number">0</span> at <span class="number">0x02CE7DE0</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ndarray的数据类型"><a href="#ndarray的数据类型" class="headerlink" title="ndarray的数据类型"></a>ndarray的数据类型</h2><p>Python语法仅支持整数、浮点数和复数3种类型，而ndarray支持多种数据类型，这也正是其用于科学计算的强大之处。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>布尔类型，True或False</td>
+</tr>
+<tr>
+<td>intc</td>
+<td>与C语言中的int类型一致，一般是int32或int64</td>
+</tr>
+<tr>
+<td>intp</td>
+<td>用于索引的整数，与C语言中ssize_t一致，int32或int64</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>字节长度的整数，取值：[‐128, 127]</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>16位长度的整数，取值：[‐32768, 32767]</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>32位长度的整数，取值：[‐2^31,2^31‐1]</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>64位长度的整数，取值：[‐2^63,2^63‐1]</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>8位无符号整数，取值：[0, 255]</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>16位无符号整数，取值：[0, 65535]</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>32位无符号整数，取值：[0,2^32‐1]</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>32位无符号整数，取值：[0,2^64‐1]</td>
+</tr>
+<tr>
+<td>float16</td>
+<td>16位半精度浮点数：1位符号位，5位指数，10位尾数</td>
+</tr>
+<tr>
+<td>float32</td>
+<td>32位半精度浮点数：1位符号位，8位指数，23位尾数</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>64位半精度浮点数：1位符号位，11位指数，52位尾数</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>复数类型，实部和虚部都是32位浮点数</td>
+</tr>
+<tr>
+<td>complex128</td>
+<td>复数类型，实部和虚部都是64位浮点数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ndarray数组的操作"><a href="#ndarray数组的操作" class="headerlink" title="ndarray数组的操作"></a>ndarray数组的操作</h2><h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><ul>
+<li><p>索引：获取数组中特定位置元素的过程</p>
+</li>
+<li><p>切片：获取数组元素子集的过程</p>
+</li>
+</ul>
+<p>一维数组的索引和切片<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">2</span>]</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">-2</span>]   <span class="comment"># 从右开始</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">1</span>:<span class="number">4</span>]      <span class="comment"># 起始编号:终止编号(不含):步长</span></span><br><span class="line">array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">0</span>:<span class="number">6</span>:<span class="number">2</span>]    <span class="comment"># 指定步长为2</span></span><br><span class="line">array([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure></p>
+<p>多维数组的索引和切片<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">-1</span>,<span class="number">-2</span>]    <span class="comment"># 从右开始</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="comment"># 选取一个维度用:，不同维度用逗号分开</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[:<span class="number">1</span>, <span class="number">1</span>:]   <span class="comment"># 每个维度切片方法与一维数组相同</span></span><br><span class="line">array([[<span class="number">2</span>, <span class="number">3</span>]])</span><br></pre></td></tr></table></figure></p>
+<h3 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h3><ul>
+<li>一元函数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>np.abs(x) np.fabs(x)</td>
+<td>计算数组各元素的绝对值</td>
+</tr>
+<tr>
+<td>np.sqrt(x)</td>
+<td>计算数组各元素的平方根</td>
+</tr>
+<tr>
+<td>np.square(x)</td>
+<td>计算数组各元素的平方</td>
+</tr>
+<tr>
+<td>np.log(x) np.log10(x) np.log2(x)</td>
+<td>计算数组各元素的自然对数、10底对数和2底对数</td>
+</tr>
+<tr>
+<td>np.ceil(x) np.floor(x)</td>
+<td>计算数组各元素的ceiling值 或 floor值</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">-2</span>, <span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.abs(a)</span><br><span class="line">array([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([<span class="number">-2</span>,  <span class="number">4</span>,  <span class="number">6</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.fabs(a)</span><br><span class="line">array([ <span class="number">2.</span>,  <span class="number">4.</span>,  <span class="number">6.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.square(a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">array([ <span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.sqrt(b)</span><br><span class="line">array([ <span class="number">2.</span>,  <span class="number">4.</span>,  <span class="number">6.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.log2(b)</span><br><span class="line">array([ <span class="number">2.</span>      ,  <span class="number">4.</span>      ,  <span class="number">5.169925</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">0.2</span>, <span class="number">1.5</span>, <span class="number">2.8</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ceil(a)</span><br><span class="line">array([ <span class="number">1.</span>,  <span class="number">2.</span>,  <span class="number">3.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.floor(a)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">2.</span>])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>np.rint(x)</td>
+<td>计算数组各元素的四舍五入值</td>
+</tr>
+<tr>
+<td>np.modf(x)</td>
+<td>将数组各元素的小数和整数部分以两个独立数组形式返回</td>
+</tr>
+<tr>
+<td>np.cos(x) np.cosh(x)</td>
+<td>计算数组各元素的普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>np.sin(x) np.sinh(x)</td>
+<td>计算数组各元素的普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>np.tan(x) np.tanh(x)</td>
+<td>计算数组各元素的普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>np.exp(x)</td>
+<td>计算数组各元素的指数值</td>
+</tr>
+<tr>
+<td>np.sign(x)</td>
+<td>计算数组各元素的符号值，1(+),0,‐1(‐)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>二元函数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+, ‐, , /, *</td>
+<td>两个数组各元素进行对应运算</td>
+</tr>
+<tr>
+<td>np.maximum(x,y) np.fmax()</td>
+<td>元素级的最大值/最小值计算</td>
+</tr>
+<tr>
+<td>np.minimum(x,y) np.fmin()</td>
+<td>元素级的最大值/最小值计算</td>
+</tr>
+<tr>
+<td>np.mod(x,y)</td>
+<td>元素级的模运算</td>
+</tr>
+<tr>
+<td>np.copysign(x,y)</td>
+<td>将数组y中各元素值的符号赋值给数组x对应元素</td>
+</tr>
+<tr>
+<td>>, &lt;, &gt;=, &lt;=, ==, !=</td>
+<td>算术比较，产生布尔型数组</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + b</span><br><span class="line">array([[ <span class="number">2</span>,  <span class="number">4</span>,  <span class="number">6</span>],</span><br><span class="line">       [ <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a - b</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a * b</span><br><span class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a / b</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a**<span class="number">2</span></span><br><span class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.maximum(a, b)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.fmax(a, b)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.mod(a, b)</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt;= b</span><br><span class="line">array([[ <span class="keyword">True</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>],</span><br><span class="line">       [ <span class="keyword">True</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>]], dtype=bool)</span><br></pre></td></tr></table></figure>
+<h2 id="ndarray数组的变换"><a href="#ndarray数组的变换" class="headerlink" title="ndarray数组的变换"></a>ndarray数组的变换</h2><h3 id="维度变换"><a href="#维度变换" class="headerlink" title="维度变换"></a>维度变换</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.reshape(shape)</td>
+<td>不改变数组元素，返回一个shape形状的数组，原数组不变</td>
+</tr>
+<tr>
+<td>.resize(shape)</td>
+<td>与.reshape()功能一致，但修改原数组</td>
+</tr>
+<tr>
+<td>.swapaxes(ax1,ax2)</td>
+<td>将数组n个维度中两个维度进行调换</td>
+</tr>
+<tr>
+<td>.flatten()</td>
+<td>对数组进行降维，返回折叠后的一维数组，原数组不变</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.ones((<span class="number">2</span>,<span class="number">6</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.reshape((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.resize((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.flatten()</span><br><span class="line">array([ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="类型变换"><a href="#类型变换" class="headerlink" title="类型变换"></a>类型变换</h3><p>astype()方法一定会创建新的数组（原始数据的一个拷贝），即使两个类型一致。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.ones((<span class="number">2</span>,<span class="number">3</span>), dtype=np.int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.astype(np.float)</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="转换成列表"><a href="#转换成列表" class="headerlink" title="转换成列表"></a>转换成列表</h3><p>tolist()方式可以实现将ndarray数组转换成列表。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.ones((<span class="number">2</span>,<span class="number">3</span>), dtype=np.int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.tolist()</span><br><span class="line">[[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+
+  
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/local_search.js"></script>
+
+    <!-- search -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    var inputArea       = document.querySelector("#local-search-input");
+    inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+    inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+    var $resultContent = document.getElementById('local-search-result');
+    var BTN = "<i id='local-search-close'>×</i>";
+    $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>Please wait for 1024 seconds ……<span></ul>";
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

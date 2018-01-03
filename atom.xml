@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Itimor&#39;s Book</title>
+  <icon>https://www.gravatar.com/avatar/212ca0f4a57a0c7d400bd03eb91df8fa</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://itimor.github.io/"/>
+  <updated>2018-01-02T05:37:23.842Z</updated>
+  <id>https://itimor.github.io/</id>
+  
+  <author>
+    <name>Itimor</name>
+    <email>itimor@126.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>itimor的Book</title>
+    <link href="https://itimor.github.io/2018/01/02/idnex/"/>
+    <id>https://itimor.github.io/2018/01/02/idnex/</id>
+    <published>2018-01-02T05:37:23.841Z</published>
+    <updated>2018-01-02T05:37:23.842Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>郑重说明</strong>：本人无耻的盗用的vuejs的主题，觉得它的样式非常好看，特此拿来给自己做技术方面的文档笔记，记录一下鸟问题。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;郑重说明&lt;/strong&gt;：本人无耻的盗用的vuejs的主题，觉得它的样式非常好看，特此拿来给自己做技术方面的文档笔记，记录一下鸟问题。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
